@@ -1,10 +1,12 @@
-@import url(\../scss/_variables.scss);
+@import url(../scss/_variables.scss);
 @import url(../scss/resetstyle.scss);
 @import url(../components/header/Header.scss);
+@import url(../components/footer/Footer.scss);
 
 * {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #3f4e65;
+  line-height: 150%;
 }
