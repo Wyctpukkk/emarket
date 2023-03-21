@@ -1,10 +1,13 @@
+import { Provider } from 'react-redux';
 import { Catalog } from './pages/catalog/Catalog';
+import { setupStore } from './store/store';
 
 const App = () => {
+  const store = setupStore();
   return (
-    <div>
+    <Provider store={store}>
       <Catalog />
-    </div>
+    </Provider>
   );
 };
 

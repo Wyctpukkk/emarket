@@ -1,6 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import sortReducer from './reducers/sortSlice';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  sortReducer,
+});
 
 export const setupStore = () => {
   return configureStore({
