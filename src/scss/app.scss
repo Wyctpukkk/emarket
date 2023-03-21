@@ -2,6 +2,9 @@
 @import url(../scss/resetstyle.scss);
 @import url(../components/header/Header.scss);
 @import url(../components/footer/Footer.scss);
+@import url(../components/categories/Categories.scss);
+@import url(../components/cards/Cards.scss);
+@import url(../components/filter/Filter.scss);
 
 * {
   font-family: 'Inter', sans-serif;
@@ -9,4 +12,9 @@
   font-size: 14px;
   color: #3f4e65;
   line-height: 150%;
+}
+.wrapper {
+  max-width: 1366px;
+  margin: 0 auto;
+  font-size: 14px;
 }
