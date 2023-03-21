@@ -9,8 +9,10 @@ const Catalog = () => {
     <div>
       <Header />
       <Categories />
-      <Filter />
-      <Cards />
+      <aside className="container">
+        <Filter />
+        <Cards />
+      </aside>
       <Footer />
     </div>
   );

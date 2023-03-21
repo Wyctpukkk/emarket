@@ -1,4 +1,5 @@
 .cards {
+  max-width: 1020px;
   &__list {
     display: flex;
     justify-content: space-between;
@@ -37,7 +38,7 @@
     &_item {
       margin: 4px 0 4px 0;
       span {
-        font-weight: 700;
+        font-weight: 600;
         margin-left: 5px;
       }
     }

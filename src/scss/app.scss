@@ -5,6 +5,7 @@
 @import url(../components/categories/Categories.scss);
 @import url(../components/cards/Cards.scss);
 @import url(../components/filter/Filter.scss);
+@import url(../pages/catalog/Catalog.scss);
 
 * {
   font-family: 'Inter', sans-serif;
@@ -16,5 +17,4 @@
 .wrapper {
   max-width: 1366px;
   margin: 0 auto;
-  font-size: 14px;
 }

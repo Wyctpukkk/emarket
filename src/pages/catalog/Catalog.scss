@@ -1,3 +1,6 @@
-div {
-  background: #ffffff;
+.container {
+  max-width: 1366px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 }

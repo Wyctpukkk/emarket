@@ -1,0 +1,125 @@
+.filter-wrapper {
+  max-width: 240px;
+}
+.filter {
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    color: #111111;
+  }
+
+  &__price {
+    margin: 10px 0 30px 0;
+    span {
+      margin: 0px 14px 0px 14px;
+    }
+  }
+
+  &__currency {
+    margin-bottom: 16px;
+    font-weight: 300;
+    span {
+      font-weight: 600;
+    }
+  }
+
+  &__from {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    width: 100px;
+    height: 23px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 198, 80, 0.3) 0%,
+      rgba(254, 202, 110, 0.3) 97.25%
+    );
+    border-radius: 1000px;
+  }
+
+  &__category {
+    margin: 40px 0 0 0;
+  }
+
+  &__category-list {
+    margin: 15px 0 20px 0;
+  }
+
+  &__category-item {
+    margin: 10px 0px 10px 0;
+  }
+}
+.filter-search {
+  &__search {
+    position: relative;
+    margin: 15px 0 15px 0;
+  }
+
+  &__input {
+    width: 238px;
+    height: 59px;
+    font-size: 12px;
+    background-color: #ededed;
+    border-radius: 36px;
+    padding: 20px;
+  }
+
+  &__search-btn {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    width: 39px;
+    height: 39px;
+    background-color: #ffc85e;
+    border-radius: 50%;
+  }
+
+  &__search-icon {
+    position: absolute;
+    top: 21px;
+    right: 21px;
+    width: 15px;
+    height: 15px;
+    background: url(../../assets/search.svg);
+  }
+}
+
+.checkbox {
+  margin: 15px 0 15px 0;
+  &__item {
+    margin: 5px 0 5px 0;
+  }
+  &__lable {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  &__real {
+    display: none;
+  }
+  &__fake {
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ceb787;
+    border-radius: 2px;
+
+    &::before {
+      position: relative;
+      display: block;
+      width: 10px;
+      height: 10px;
+      top: -8px;
+      left: 0px;
+      content: '✓';
+      color: green;
+      opacity: 0;
+      transition-duration: 0.5s;
+    }
+  }
+}
+.checkbox__real:checked + .checkbox__fake::before {
+  opacity: 1;
+}
