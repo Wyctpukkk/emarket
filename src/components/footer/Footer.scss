@@ -73,6 +73,8 @@
   }
 }
 .categories {
+  display: flex;
+  flex-direction: column;
   &__title {
     font-weight: 600;
     font-size: 20px;

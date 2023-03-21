@@ -20,6 +20,9 @@ const Cards = () => {
             <li className="card__details_item">
               Бренд:<span>АOS</span>
             </li>
+            <li className="card__details_item">
+              Тип ухода:<span>За телом</span>
+            </li>
           </ul>
           <div className="card__payload">
             <span className="card__cost">48,76 ₸</span>

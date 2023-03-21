@@ -28,70 +28,70 @@ const Categories = () => {
           </div> */}
         </div>
       </div>
-      <ul className="categories">
-        <li className="categories__item">
+      <ul className="category">
+        <li className="category__item">
           <button>
             <pre>
               Уход <br /> за телом
             </pre>
           </button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>
             <pre>
               Уход <br /> за руками
             </pre>
           </button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>
             <pre>
               Уход <br /> за ногами
             </pre>
           </button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>
             <pre>
               Уход <br /> за лицом
             </pre>
           </button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>
             <pre>
               Уход <br /> за волосами
             </pre>
           </button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>
             <pre>
               Средства <br /> для загара
             </pre>
           </button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>
             <pre>
               Средства <br /> для бритья
             </pre>
           </button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>Подарочные наборы</button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>Гигиеническая продукция</button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>
             <pre>
               Гигиена <br /> полости рта
             </pre>
           </button>
         </li>
-        <li className="categories__item">
+        <li className="category__item">
           <button>Бумажная продукция</button>
         </li>
       </ul>
