@@ -5,58 +5,71 @@ import { Product } from '../../models/IProduct';
 
 const Cards = () => {
   const [items, setItems] = useState(db);
-  console.log(items);
+
   const sortProperty: string = useAppSelector(
     (state) => state.sortReducer.sort.sortProperty
   );
 
+  const categoryProperty: number = useAppSelector(
+    (state) => state.sortReducer.category
+  );
+
+  useEffect(() => {
+    if (categoryProperty === 0) {
+    } else {
+      const array = items.filter((obj: Product) => {
+        return obj.category.includes[categoryProperty]; // проблема с типизацией
+      });
+    }
+  }, [categoryProperty]);
+
   useEffect(() => {
     if (sortProperty === 'priceUp') {
       setItems([
-        ...db.sort((a: Product, b: Product) => {
+        ...items.sort((a: Product, b: Product) => {
           if (a.price > b.price) {
             return 1;
-          } else if (a.price < b.price) {
-            return -1;
-          } else {
-            return 0;
           }
+          if (a.price < b.price) {
+            return -1;
+          }
+          return 0;
         }),
       ]);
     } else if (sortProperty === 'priceDown') {
       setItems([
-        ...db.sort((a: Product, b: Product) => {
+        ...items.sort((a: Product, b: Product) => {
           if (a.price > b.price) {
             return -1;
-          } else if (a.price < b.price) {
-            return 1;
-          } else {
-            return 0;
           }
+          if (a.price < b.price) {
+            return 1;
+          }
+          return 0;
         }),
       ]);
     } else if (sortProperty === 'titleDown') {
       setItems([
-        ...db.sort((a: Product, b: Product) => {
+        ...items.sort((a: Product, b: Product) => {
           if (a.name > b.name) {
             return 1;
-          } else if (a.name < b.name) {
-            return -1;
-          } else {
-            return 0;
           }
+          if (a.name < b.name) {
+            return -1;
+          }
+          return 0;
         }),
       ]);
     } else if (sortProperty === 'titleUp') {
       setItems([
-        ...db.sort((a: Product, b: Product) => {
+        ...items.sort((a: Product, b: Product) => {
           if (a.name > b.name) {
             return -1;
-          } else if (a.name < b.name) {
-            return 1;
-          } else {
-            return 0;
           }
+          if (a.name < b.name) {
+            return 1;
+          }
+          return 0;
         }),
       ]);
     }

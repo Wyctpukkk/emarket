@@ -1,0 +1,8 @@
+.navigation {
+  display: flex;
+  margin: 45px 0px 45px 0px;
+  &__item {
+    font-weight: 300;
+    padding-right: 10px;
+  }
+}

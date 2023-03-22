@@ -4,7 +4,7 @@ export interface Product {
   type: string;
   typeValue: number;
   uid: number;
-  category: string[];
+  category: number[];
   productedBy: string;
   brand: string;
   desc: string;
