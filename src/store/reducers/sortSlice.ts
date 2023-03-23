@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 interface sortState {
+  search: string;
   category: number;
   sort: {
     name: string;
@@ -10,6 +11,7 @@ interface sortState {
 }
 
 const initialState: sortState = {
+  search: '',
   category: 0,
   sort: {
     name: 'Названию↓',
@@ -27,9 +29,12 @@ export const sortSlice = createSlice({
     setCategory(state, action: PayloadAction<number>) {
       state.category = action.payload;
     },
+    setSearch(state, action: PayloadAction<string>) {
+      state.search = action.payload;
+    },
   },
 });
 
-export const { setSort, setCategory } = sortSlice.actions;
+export const { setSort, setCategory, setSearch } = sortSlice.actions;
 
 export default sortSlice.reducer;

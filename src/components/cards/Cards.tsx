@@ -14,6 +14,10 @@ const Cards = () => {
     (state) => state.sortReducer.category
   );
 
+  const searchProperty: string = useAppSelector(
+    (state) => state.sortReducer.search
+  );
+
   useEffect(() => {
     if (categoryProperty === 0) {
       setItems(db);
@@ -23,9 +27,22 @@ const Cards = () => {
           return obj.category.includes(categoryProperty);
         }),
       ]);
-      console.log(categoryProperty);
     }
   }, [categoryProperty]);
+
+  useEffect(() => {
+    if (searchProperty === '') {
+      setItems(db);
+    } else {
+      setItems([
+        ...db.filter((obj: Product) => {
+          return obj.productedBy
+            .toLowerCase()
+            .includes(searchProperty.toLowerCase());
+        }),
+      ]);
+    }
+  }, [searchProperty]);
 
   useEffect(() => {
     if (sortProperty === 'priceUp') {

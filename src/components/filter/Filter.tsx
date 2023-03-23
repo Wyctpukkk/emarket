@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { setCategory } from '../../store/reducers/sortSlice';
+import { setSearch } from '../../store/reducers/sortSlice';
 
 const Filter = () => {
   const category = [
@@ -28,6 +29,10 @@ const Filter = () => {
       : dispatch(setCategory(id));
   };
 
+  const onChangeSelected = (value: string) => {
+    value === '' ? dispatch(setSearch('')) : dispatch(setSearch(value));
+  };
+
   return (
     <div className="filter-wrapper">
       <div className="filter">
@@ -44,6 +49,9 @@ const Filter = () => {
           <p className="filter__title">Производитель</p>
           <div className="filter-search__search">
             <input
+              onChange={(e) => {
+                onChangeSelected(e.target.value);
+              }}
               className="filter-search__input"
               placeholder="Поиск..."
             ></input>
