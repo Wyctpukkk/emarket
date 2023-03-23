@@ -1,6 +1,10 @@
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { setCategory } from '../../store/reducers/sortSlice';
-import { setSearch } from '../../store/reducers/sortSlice';
+import {
+  setCategory,
+  setSearch,
+  setMinPrice,
+  setMaxPrice,
+} from '../../store/reducers/sortSlice';
 
 const Filter = () => {
   const category = [
@@ -33,6 +37,14 @@ const Filter = () => {
     value === '' ? dispatch(setSearch('')) : dispatch(setSearch(value));
   };
 
+  const onChangeMinPriceSelected = (min: number | string) => {
+    dispatch(setMinPrice(+min));
+  };
+
+  const onChangeMaxPriceSelected = (max: number | string) => {
+    dispatch(setMaxPrice(+max));
+  };
+
   return (
     <div className="filter-wrapper">
       <div className="filter">
@@ -41,9 +53,23 @@ const Filter = () => {
           <p className="filter__currency">
             Цена <span>₸</span>
           </p>
-          <input className="filter__from" placeholder="0"></input>
+          <input
+            onChange={(e) => {
+              onChangeMinPriceSelected(e.target.value);
+            }}
+            className="filter__from"
+            type="number"
+            placeholder="0"
+          ></input>
           <span>-</span>
-          <input className="filter__from" placeholder="10000"></input>
+          <input
+            onChange={(e) => {
+              onChangeMaxPriceSelected(e.target.value);
+            }}
+            className="filter__from"
+            type="number"
+            placeholder="10000"
+          ></input>
         </div>
         <div className="filter__by">
           <p className="filter__title">Производитель</p>

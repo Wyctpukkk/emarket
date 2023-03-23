@@ -18,6 +18,14 @@ const Cards = () => {
     (state) => state.sortReducer.search
   );
 
+  const minPrice: number = useAppSelector(
+    (state) => state.sortReducer.minPrice
+  );
+
+  const maxPrice: number = useAppSelector(
+    (state) => state.sortReducer.maxPrice
+  );
+
   useEffect(() => {
     if (categoryProperty === 0) {
       setItems(db);
@@ -43,6 +51,18 @@ const Cards = () => {
       ]);
     }
   }, [searchProperty]);
+
+  useEffect(() => {
+    setItems([
+      ...db.filter((obj: Product) => {
+        const arr = obj.price > minPrice && obj.price < maxPrice;
+        console.log(arr);
+        return obj.price > minPrice && obj.price < maxPrice;
+      }),
+    ]);
+    console.log(minPrice);
+    console.log(maxPrice);
+  }, [minPrice, maxPrice]);
 
   useEffect(() => {
     if (sortProperty === 'priceUp') {
