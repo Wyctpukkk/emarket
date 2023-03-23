@@ -106,6 +106,9 @@
     display: flex;
     gap: 5px;
     align-items: center;
+    &:first-letter {
+      text-transform: capitalize;
+    }
   }
   &__real {
     display: none;

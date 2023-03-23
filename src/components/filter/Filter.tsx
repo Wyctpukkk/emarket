@@ -4,7 +4,10 @@ import {
   setSearch,
   setMinPrice,
   setMaxPrice,
+  setBrand,
 } from '../../store/reducers/sortSlice';
+import { useEffect, useState } from 'react';
+import db from '../../db.json';
 
 const Filter = () => {
   const category = [
@@ -20,11 +23,20 @@ const Filter = () => {
     { first: 'Гигиена', second: 'полости рта', categoryProperty: 10 },
     { first: 'Бумажная', second: 'продукция', categoryProperty: 11 },
   ];
+  interface StateProperties {
+    brand: string;
+    count: number;
+  }
+  const [massiveOfBrands, setMassiveOfBrands] = useState<StateProperties[]>([]);
 
   const dispatch = useAppDispatch();
 
   const categoryProperty: number = useAppSelector(
     (state) => state.sortReducer.category
+  );
+
+  const brandProperty: string[] = useAppSelector(
+    (state) => state.sortReducer.brand
   );
 
   const onClickSelected = (id: number) => {
@@ -44,6 +56,48 @@ const Filter = () => {
   const onChangeMaxPriceSelected = (max: number | string) => {
     dispatch(setMaxPrice(+max));
   };
+
+  const onClickBrandSelected = (value: string) => {
+    let array = [...brandProperty];
+
+    if (brandProperty.includes(value)) {
+      array = [...array.filter((obj) => obj !== value)];
+    } else {
+      array.push(value);
+    }
+
+    dispatch(setBrand(array));
+  };
+  console.log(brandProperty);
+
+  useEffect(() => {
+    const res = db
+      .map((obj, id) => {
+        return obj.brand;
+      })
+      .sort();
+
+    const unicCollection = new Set(res);
+    const arr = Array.from(unicCollection);
+
+    const lengths: number[] = [];
+
+    for (let i = 0; i < arr.length; i++) {
+      const lengthOfBrand: number = res.filter((obj, id) => {
+        return obj === arr[i];
+      }).length;
+      lengths.push(lengthOfBrand);
+    }
+
+    const brandFilter: Array<any> = [];
+    const createObj = (key: string, value: number) => {
+      brandFilter.push({ brand: key, count: value });
+    };
+    for (let i = 0; i < arr.length; i++) {
+      createObj(arr[i], lengths[i]);
+    }
+    setMassiveOfBrands(brandFilter);
+  }, []);
 
   return (
     <div className="filter-wrapper">
@@ -85,34 +139,22 @@ const Filter = () => {
             <div className="filter-search__search-icon"></div>
           </div>
           <ul className="checkbox">
-            <li className="checkbox__item">
-              <label className="checkbox__lable">
-                <input className="checkbox__real" type="checkbox" />
-                <span className="checkbox__fake"></span>
-                Производитель <span>(count)</span>
-              </label>
-            </li>
-            <li className="checkbox__item">
-              <label className="checkbox__lable">
-                <input className="checkbox__real" type="checkbox" />
-                <span className="checkbox__fake"></span>
-                Производитель <span>(count)</span>
-              </label>
-            </li>
-            <li className="checkbox__item">
-              <label className="checkbox__lable">
-                <input className="checkbox__real" type="checkbox" />
-                <span className="checkbox__fake"></span>
-                Производитель <span>(count)</span>
-              </label>
-            </li>
-            <li className="checkbox__item">
-              <label className="checkbox__lable">
-                <input className="checkbox__real" type="checkbox" />
-                <span className="checkbox__fake"></span>
-                Производитель <span>(count)</span>
-              </label>
-            </li>
+            {massiveOfBrands.map((obj, id) => {
+              return (
+                <li className="checkbox__item" key={id}>
+                  <label className="checkbox__lable">
+                    <input
+                      className="checkbox__real"
+                      type="checkbox"
+                      onClick={() => onClickBrandSelected(obj.brand)}
+                    />
+                    <span className="checkbox__fake"></span>
+                    {obj.brand}
+                    <span>{obj.count}</span>
+                  </label>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="filter__category">

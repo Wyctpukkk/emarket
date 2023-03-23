@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 interface sortState {
+  brand: string[];
   minPrice: number;
   maxPrice: number;
   search: string;
@@ -13,6 +14,7 @@ interface sortState {
 }
 
 const initialState: sortState = {
+  brand: [],
   minPrice: 0,
   maxPrice: 10000,
   search: '',
@@ -42,10 +44,19 @@ export const sortSlice = createSlice({
     setMaxPrice(state, action: PayloadAction<number>) {
       state.maxPrice = action.payload;
     },
+    setBrand(state, action: PayloadAction<string[]>) {
+      state.brand = action.payload;
+    },
   },
 });
 
-export const { setSort, setCategory, setSearch, setMinPrice, setMaxPrice } =
-  sortSlice.actions;
+export const {
+  setSort,
+  setCategory,
+  setSearch,
+  setMinPrice,
+  setMaxPrice,
+  setBrand,
+} = sortSlice.actions;
 
 export default sortSlice.reducer;
