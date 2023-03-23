@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -46,7 +46,7 @@ const Header = () => {
       <span className="line"></span>
       <div className="wrapper">
         <article className="downheader">
-          <div className="downheader__logotype"></div>
+          <Link to={'/'} className="downheader__logotype"></Link>
           <button className="downheader__catalog">
             Каталог
             <span className="downheader__catalog_icon"></span>
@@ -69,10 +69,10 @@ const Header = () => {
             <span className="downheader__price-list_icon"></span>
           </button>
           <div className="downheader__cart">
-            <button className="downheader__cart-link">
+            <Link to={'cart'} className="downheader__cart-link">
               <span className="downheader__cart-link_img"></span>
               <span className="downheader__cart-link_count">3</span>
-            </button>
+            </Link>
             <div className="downheader__cart-info">
               Корзина
               <br />

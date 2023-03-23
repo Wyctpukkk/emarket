@@ -2,6 +2,7 @@ import db from '../../db.json';
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../hooks/redux';
 import { Product } from '../../models/IProduct';
+import { Link } from 'react-router-dom';
 
 const Cards = () => {
   const [items, setItems] = useState(db);
@@ -146,9 +147,9 @@ const Cards = () => {
                     {obj.typeValue} {obj.type}
                   </div>
                 </div>
-                <p className="card__desc">
+                <Link to={`item/${obj.uid}`} className="card__desc">
                   <span className="card__title">{obj.name}</span> {obj.desc}
-                </p>
+                </Link>
                 <ul className="card__details">
                   <li className="card__details_item">
                     Штрихкод:<span>{obj.uid}</span>
