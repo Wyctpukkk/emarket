@@ -16,10 +16,14 @@ const Cards = () => {
 
   useEffect(() => {
     if (categoryProperty === 0) {
+      setItems(db);
     } else {
-      const array = items.filter((obj: Product) => {
-        return obj.category.includes[categoryProperty]; // проблема с типизацией
-      });
+      setItems([
+        ...db.filter((obj: Product) => {
+          return obj.category.includes(categoryProperty);
+        }),
+      ]);
+      console.log(categoryProperty);
     }
   }, [categoryProperty]);
 

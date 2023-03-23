@@ -48,6 +48,18 @@
 
   &__category-item {
     margin: 10px 0px 10px 0;
+    button {
+      background: unset;
+    }
+  }
+  &__category-item.active {
+    margin: 10px 0px 10px 0;
+    button {
+      padding: 5px;
+      border-radius: 10px;
+      background: unset;
+      box-shadow: inset 0px 15px 70px -11px rgba(43, 28, 1, 0.14);
+    }
   }
 }
 .filter-search {

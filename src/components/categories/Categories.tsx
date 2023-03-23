@@ -1,4 +1,4 @@
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { setCategory } from '../../store/reducers/sortSlice';
 
 const Categories = () => {
@@ -18,8 +18,14 @@ const Categories = () => {
 
   const dispatch = useAppDispatch();
 
+  const categoryProperty: number = useAppSelector(
+    (state) => state.sortReducer.category
+  );
+
   const onClickSelected = (id: number) => {
-    dispatch(setCategory(id));
+    id === categoryProperty
+      ? dispatch(setCategory(0))
+      : dispatch(setCategory(id));
   };
 
   return (
@@ -27,7 +33,14 @@ const Categories = () => {
       <ul className="category">
         {category.map((obj, id) => {
           return (
-            <li className="category__item" key={id}>
+            <li
+              className={
+                obj.categoryProperty === categoryProperty
+                  ? 'category__item active'
+                  : 'category__item'
+              }
+              key={id}
+            >
               <button onClick={() => onClickSelected(obj.categoryProperty)}>
                 <pre>
                   {obj.first} <br /> {obj.second}
