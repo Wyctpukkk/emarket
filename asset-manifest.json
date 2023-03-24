@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/emarket/static/css/main.f4bd92df.css",
-    "main.js": "/emarket/static/js/main.07e40096.js",
+    "main.css": "/emarket/static/css/main.cbe5f6f0.css",
+    "main.js": "/emarket/static/js/main.f8445f60.js",
     "static/media/support.svg": "/emarket/static/media/support.13a11c507539d6e880bc.svg",
     "static/media/Logo.svg": "/emarket/static/media/Logo.db083c0f313537c94684.svg",
     "static/media/logo-white.svg": "/emarket/static/media/logo-white.32fbeab907ed8811525a.svg",
@@ -9,6 +9,7 @@
     "static/media/wu.svg": "/emarket/static/media/wu.db4fdea63d5ac10f8039.svg",
     "static/media/cart-white.svg": "/emarket/static/media/cart-white.a01cc6d208c6df982a93.svg",
     "static/media/Cart.svg": "/emarket/static/media/Cart.7e3f10a67cbf7efab906.svg",
+    "static/media/trash.svg": "/emarket/static/media/trash.44202266d5f12854837e97d26b8ce355.svg",
     "static/media/Visa.svg": "/emarket/static/media/Visa.22acfa0df22f67cb0bcf.svg",
     "static/media/share.svg": "/emarket/static/media/share.5201f4defbefb503f0cd54ced3977e87.svg",
     "static/media/email.svg": "/emarket/static/media/email.3340915fd443967adca6.svg",
@@ -22,11 +23,11 @@
     "static/media/price-black.svg": "/emarket/static/media/price-black.11d3238f37bdb4da06fd293c2ccf77e4.svg",
     "static/media/price.svg": "/emarket/static/media/price.5e96ff0389bda2c46910.svg",
     "static/media/arrow.svg": "/emarket/static/media/arrow.35ab94e2f8817f324bd3.svg",
-    "main.f4bd92df.css.map": "/emarket/static/css/main.f4bd92df.css.map",
-    "main.07e40096.js.map": "/emarket/static/js/main.07e40096.js.map"
+    "main.cbe5f6f0.css.map": "/emarket/static/css/main.cbe5f6f0.css.map",
+    "main.f8445f60.js.map": "/emarket/static/js/main.f8445f60.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4bd92df.css",
-    "static/js/main.07e40096.js"
+    "static/css/main.cbe5f6f0.css",
+    "static/js/main.f8445f60.js"
   ]
 }
