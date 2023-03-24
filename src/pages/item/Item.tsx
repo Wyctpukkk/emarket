@@ -1,6 +1,5 @@
 import { Adress } from '../../components/adress/Adress';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { Product } from '../../models/IProduct';
 import db from '../../db.json';
 import shareSvg from '../../assets/share.svg';
@@ -14,7 +13,6 @@ const Item = () => {
   const result = db.filter((obj: Product) => {
     return obj.uid === uidProperty;
   })[0];
-  console.log(result);
 
   return (
     <div className="wrapper">

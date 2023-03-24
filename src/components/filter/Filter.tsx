@@ -68,7 +68,6 @@ const Filter = () => {
 
     dispatch(setBrand(array));
   };
-  console.log(brandProperty);
 
   useEffect(() => {
     const res = db

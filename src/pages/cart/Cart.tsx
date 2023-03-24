@@ -1,5 +1,11 @@
+import { Adress } from '../../components/adress/Adress';
+
 const Cart = () => {
-  return <div>asxs</div>;
+  return (
+    <div>
+      <Adress />
+    </div>
+  );
 };
 
 export { Cart };

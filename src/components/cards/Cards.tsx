@@ -147,7 +147,7 @@ const Cards = () => {
                     {obj.typeValue} {obj.type}
                   </div>
                 </div>
-                <Link to={`item/${obj.uid}`} className="card__desc">
+                <Link to={`/${obj.uid}`} className="card__desc">
                   <span className="card__title">{obj.name}</span> {obj.desc}
                 </Link>
                 <ul className="card__details">
