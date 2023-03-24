@@ -21,7 +21,6 @@ const Adress = () => {
     }
   };
   setAdress(pathname);
-  console.log(array);
 
   return (
     <div className="wrapper">
