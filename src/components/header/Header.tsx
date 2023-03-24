@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../hooks/redux';
 
 const Header = () => {
+  const totalItems: number = useAppSelector(
+    (state) => state.cartReducer.totalItems
+  );
+
   return (
     <header className="header">
       <div className="wrapper">
@@ -71,7 +76,7 @@ const Header = () => {
           <div className="downheader__cart">
             <Link to={'cart'} className="downheader__cart-link">
               <span className="downheader__cart-link_img"></span>
-              <span className="downheader__cart-link_count">3</span>
+              <span className="downheader__cart-link_count">{totalItems}</span>
             </Link>
             <div className="downheader__cart-info">
               Корзина

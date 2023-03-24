@@ -1,15 +1,15 @@
 @import url(../scss/_variables.scss);
 @import url(../scss/resetstyle.scss);
-@import url(../components/header/Header.scss);
-@import url(../components/footer/Footer.scss);
-@import url(../components/categories/Categories.scss);
-@import url(../components/cards/Cards.scss);
-@import url(../components/filter/Filter.scss);
-@import url(../pages/catalog/Catalog.scss);
-@import url(../components/sort/Sort.scss);
-@import url(../components/adress/Adress.scss);
-@import url(../pages/item/Item.scss);
-@import url(../pages/cart/Cart.scss);
+@import url(../components/header/Header.module.scss);
+@import url(../components/footer/Footer.module.scss);
+@import url(../components/categories/Categories.module.scss);
+@import url(../components/cards/Cards.module.scss);
+@import url(../components/filter/Filter.module.scss);
+@import url(../pages/catalog/Catalog.module.scss);
+@import url(../components/sort/Sort.module.scss);
+@import url(../components/adress/Adress.module.scss);
+@import url(../pages/item/Item.module.scss);
+@import url(../pages/cart/Cart.module.scss);
 
 * {
   font-family: 'Inter', sans-serif;

@@ -1,11 +1,14 @@
 import db from '../../db.json';
 import { useEffect, useState } from 'react';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector, useAppDispatch } from '../../hooks/redux';
 import { Product } from '../../models/IProduct';
 import { Link } from 'react-router-dom';
+import { addNewProduct } from '../../store/reducers/cartSlice';
 
 const Cards = () => {
   const [items, setItems] = useState(db);
+
+  const dispatch = useAppDispatch();
 
   const sortProperty: string = useAppSelector(
     (state) => state.sortReducer.sort.sortProperty
@@ -30,6 +33,11 @@ const Cards = () => {
   const brandPropery: string[] = useAppSelector(
     (state) => state.sortReducer.brand
   );
+
+  const onClickAddNewProduct = (obj: Product) => {
+    dispatch(addNewProduct(obj));
+    console.log(obj);
+  };
 
   useEffect(() => {
     if (categoryProperty === 0) {
@@ -166,7 +174,14 @@ const Cards = () => {
                 </ul>
                 <div className="card__payload">
                   <span className="card__cost">{obj.price} ₸</span>
-                  <button className="card__add">В КОРЗИНУ</button>
+                  <button
+                    onClick={() => {
+                      onClickAddNewProduct(obj);
+                    }}
+                    className="card__add"
+                  >
+                    В КОРЗИНУ
+                  </button>
                   <span className="card__add_icon"></span>
                 </div>
               </li>
