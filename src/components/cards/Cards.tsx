@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from '../../hooks/redux';
 import { Product } from '../../models/IProduct';
 import { Link } from 'react-router-dom';
 import { addCatalogProduct } from '../../store/reducers/cartSlice';
+import { Pagination } from '../pagination/Pagination';
 
 const Cards = () => {
   interface sortState {
@@ -19,6 +20,15 @@ const Cards = () => {
   }
   const dispatch = useAppDispatch();
   const [items, setItems] = useState(db);
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPerPage] = useState<number>(9);
+  const lastItemIndex: number = currentPage * itemsPerPage;
+  const firtItemIndex: number = lastItemIndex - itemsPerPage;
+  const currentItem: Product[] = items.slice(firtItemIndex, lastItemIndex);
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   const state: sortState = useAppSelector((state) => state.sortReducer);
   const { category, search, minPrice, maxPrice, brand } = state;
@@ -131,7 +141,7 @@ const Cards = () => {
     <div className="cards">
       {items && (
         <ul className="cards__list">
-          {items.map((obj, _) => {
+          {currentItem.map((obj, index) => {
             return (
               <li key={obj.uid} className="card">
                 <div className="card__image-wrapper">
@@ -179,6 +189,21 @@ const Cards = () => {
           })}
         </ul>
       )}
+      <div className="pagination-block">
+        <Pagination
+          currentPage={currentPage}
+          itemsPerPage={itemsPerPage}
+          totalItems={items.length}
+          paginate={paginate}
+        />
+      </div>
+      <p className="decription">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum
+        ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate
+        feugiat massa vestibulum duis. Faucibus consectetur aliquet sed
+        pellentesque consequat consectetur congue mauris venenatis. Nunc elit,
+        dignissim sed nulla ullamcorper enim, malesuada.
+      </p>
     </div>
   );
 };

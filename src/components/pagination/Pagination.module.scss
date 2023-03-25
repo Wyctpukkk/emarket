@@ -1,0 +1,51 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+  }
+
+  &__page.active {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 198, 80, 0.3) 0%,
+      rgba(254, 202, 110, 0.3) 97.25%
+    );
+    border-radius: 50%;
+  }
+  &__page {
+    width: 35px;
+    height: 35px;
+    background: unset;
+    border-radius: 50%;
+    font-weight: 600;
+  }
+  &__prev {
+    width: 35px;
+    height: 35px;
+    margin: 0 35px 0 0;
+    background: unset;
+    border-radius: 50%;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__next {
+    width: 35px;
+    height: 35px;
+    margin: 0 0 0 30px;
+    background: unset;
+    border-radius: 50%;
+    font-weight: 600;
+    transform: rotate(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
