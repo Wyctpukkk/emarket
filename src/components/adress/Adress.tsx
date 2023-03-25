@@ -17,7 +17,7 @@ const Adress = () => {
       array.push({ path: '/', name: 'Каталог' });
     } else {
       const obj = db.filter((obj) => {
-        return obj.uid === +pathname.slice(1);
+        return obj.uid === +pathname.slice(6);
       })[0];
       array.push({ path: '/', name: 'Каталог' });
       array.push({ path: pathname, name: `${obj.name} ${obj.desc}` });

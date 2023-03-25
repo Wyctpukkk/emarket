@@ -12,7 +12,6 @@ const Item = () => {
   const { uid } = useParams();
   const dispatch = useAppDispatch();
   const [item, setItem] = useState<Product[]>([]);
-
   const uidProperty: number = +uid!;
 
   const costPerOne: number = db.filter((obj: Product) => {
