@@ -2,9 +2,13 @@ import { Link, useLocation } from 'react-router-dom';
 import db from '../../db.json';
 
 const Adress = () => {
+  interface objAdressProperties {
+    path: string;
+    name: string;
+  }
   let { pathname } = useLocation();
 
-  const array: any[] = [];
+  const array: objAdressProperties[] = [];
 
   const setAdress = (pathname: string) => {
     if (pathname === '/cart') {

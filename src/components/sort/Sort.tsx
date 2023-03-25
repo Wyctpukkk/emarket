@@ -3,15 +3,20 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { setSort } from '../../store/reducers/sortSlice';
 
 const Sort = () => {
-  const [showSortMenu, setShowSortMenu] = useState(false);
-  const list = [
+  const dispatch = useAppDispatch();
+  const [showSortMenu, setShowSortMenu] = useState<Boolean>(false);
+
+  interface objSortProperties {
+    name: string;
+    sortProperty: string;
+  }
+
+  const list: objSortProperties[] = [
     { name: 'Цене↑', sortProperty: 'priceUp' },
     { name: 'Цене↓', sortProperty: 'priceDown' },
     { name: 'Названию↑', sortProperty: 'titleUp' },
     { name: 'Названию↓', sortProperty: 'titleDown' },
   ];
-
-  const dispatch = useAppDispatch();
 
   const defaulSort: string = useAppSelector(
     (state) => state.sortReducer.sort.name

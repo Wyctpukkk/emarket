@@ -9,5 +9,5 @@ export interface Product {
   brand: string;
   desc: string;
   price: number;
-  count?: number;
+  count: number;
 }

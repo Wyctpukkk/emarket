@@ -4,5 +4,8 @@
   &__item {
     font-weight: 300;
     padding-right: 10px;
+    &:last-child {
+      opacity: 0.5;
+    }
   }
 }

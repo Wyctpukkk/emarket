@@ -3,67 +3,57 @@ import { useEffect, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux';
 import { Product } from '../../models/IProduct';
 import { Link } from 'react-router-dom';
-import { addNewProduct } from '../../store/reducers/cartSlice';
+import { addCatalogProduct } from '../../store/reducers/cartSlice';
 
 const Cards = () => {
+  interface sortState {
+    brand: string[];
+    minPrice: number;
+    maxPrice: number;
+    search: string;
+    category: number;
+    sort: {
+      name: string;
+      sortProperty: string;
+    };
+  }
+  const dispatch = useAppDispatch();
   const [items, setItems] = useState(db);
 
-  const dispatch = useAppDispatch();
+  const state: sortState = useAppSelector((state) => state.sortReducer);
+  const { category, search, minPrice, maxPrice, brand } = state;
 
   const sortProperty: string = useAppSelector(
     (state) => state.sortReducer.sort.sortProperty
   );
 
-  const categoryProperty: number = useAppSelector(
-    (state) => state.sortReducer.category
-  );
-
-  const searchProperty: string = useAppSelector(
-    (state) => state.sortReducer.search
-  );
-
-  const minPrice: number = useAppSelector(
-    (state) => state.sortReducer.minPrice
-  );
-
-  const maxPrice: number = useAppSelector(
-    (state) => state.sortReducer.maxPrice
-  );
-
-  const brandPropery: string[] = useAppSelector(
-    (state) => state.sortReducer.brand
-  );
-
-  const onClickAddNewProduct = (obj: Product) => {
-    dispatch(addNewProduct(obj));
-    console.log(obj);
+  const onClickAddCatalogProduct = (obj: Product) => {
+    dispatch(addCatalogProduct(obj));
   };
 
   useEffect(() => {
-    if (categoryProperty === 0) {
+    if (category === 0) {
       setItems(db);
     } else {
       setItems([
         ...db.filter((obj: Product) => {
-          return obj.category.includes(categoryProperty);
+          return obj.category.includes(category);
         }),
       ]);
     }
-  }, [categoryProperty]);
+  }, [category]);
 
   useEffect(() => {
-    if (searchProperty === '') {
+    if (search === '') {
       setItems(db);
     } else {
       setItems([
         ...db.filter((obj: Product) => {
-          return obj.productedBy
-            .toLowerCase()
-            .includes(searchProperty.toLowerCase());
+          return obj.productedBy.toLowerCase().includes(search.toLowerCase());
         }),
       ]);
     }
-  }, [searchProperty]);
+  }, [search]);
 
   useEffect(() => {
     setItems([
@@ -74,16 +64,16 @@ const Cards = () => {
   }, [minPrice, maxPrice]);
 
   useEffect(() => {
-    if (brandPropery.length === 0) {
+    if (brand.length === 0) {
       setItems(db);
     } else {
       setItems([
         ...db.filter((obj: Product) => {
-          return brandPropery.includes(obj.brand);
+          return brand.includes(obj.brand);
         }),
       ]);
     }
-  }, [brandPropery]);
+  }, [brand]);
 
   useEffect(() => {
     if (sortProperty === 'priceUp') {
@@ -176,7 +166,7 @@ const Cards = () => {
                   <span className="card__cost">{obj.price} ₸</span>
                   <button
                     onClick={() => {
-                      onClickAddNewProduct(obj);
+                      onClickAddCatalogProduct(obj);
                     }}
                     className="card__add"
                   >

@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/redux';
+import { Product } from '../../models/IProduct';
 
 const Header = () => {
-  const totalItems: number = useAppSelector(
-    (state) => state.cartReducer.totalItems
-  );
+  interface cartState {
+    arrayOfItems: Product[];
+    totalItems: number;
+    totalPrice: number;
+  }
+
+  const state: cartState = useAppSelector((state) => state.cartReducer);
+  const totalPrice = state.totalPrice;
+  const totalItems = state.totalItems;
 
   return (
     <header className="header">
@@ -81,7 +88,7 @@ const Header = () => {
             <div className="downheader__cart-info">
               Корзина
               <br />
-              <span>12 478 ₸</span>
+              <span>{totalPrice} ₸</span>
             </div>
           </div>
         </article>

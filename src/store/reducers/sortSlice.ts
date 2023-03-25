@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
+interface objSortProperties {
+  name: string;
+  sortProperty: string;
+}
+
 interface sortState {
   brand: string[];
   minPrice: number;
@@ -29,7 +34,7 @@ export const sortSlice = createSlice({
   name: 'sort',
   initialState,
   reducers: {
-    setSort(state, action: PayloadAction<any>) {
+    setSort(state, action: PayloadAction<objSortProperties>) {
       state.sort = action.payload;
     },
     setCategory(state, action: PayloadAction<number>) {

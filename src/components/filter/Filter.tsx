@@ -10,7 +10,12 @@ import { useEffect, useState } from 'react';
 import db from '../../db.json';
 
 const Filter = () => {
-  const category = [
+  interface objCategoryProperties {
+    first: string;
+    second: string;
+    categoryProperty: number;
+  }
+  const categoryArray: objCategoryProperties[] = [
     { first: 'Уход', second: 'за телом', categoryProperty: 1 },
     { first: 'Уход', second: 'за руками', categoryProperty: 2 },
     { first: 'Уход', second: 'за ногами', categoryProperty: 3 },
@@ -27,22 +32,14 @@ const Filter = () => {
     brand: string;
     count: number;
   }
-  const [massiveOfBrands, setMassiveOfBrands] = useState<StateProperties[]>([]);
+  const [arrayOfBrands, setArrayOfBrands] = useState<StateProperties[]>([]);
 
   const dispatch = useAppDispatch();
 
-  const categoryProperty: number = useAppSelector(
-    (state) => state.sortReducer.category
-  );
-
-  const brandProperty: string[] = useAppSelector(
-    (state) => state.sortReducer.brand
-  );
+  const { category, brand } = useAppSelector((state) => state.sortReducer);
 
   const onClickSelected = (id: number) => {
-    id === categoryProperty
-      ? dispatch(setCategory(0))
-      : dispatch(setCategory(id));
+    id === category ? dispatch(setCategory(0)) : dispatch(setCategory(id));
   };
 
   const onChangeSelected = (value: string) => {
@@ -58,44 +55,44 @@ const Filter = () => {
   };
 
   const onClickBrandSelected = (value: string) => {
-    let array = [...brandProperty];
-
-    if (brandProperty.includes(value)) {
+    let array = [...brand];
+    if (brand.includes(value)) {
       array = [...array.filter((obj) => obj !== value)];
     } else {
       array.push(value);
     }
-
     dispatch(setBrand(array));
   };
 
   useEffect(() => {
     const res = db
-      .map((obj, id) => {
+      .map((obj) => {
         return obj.brand;
       })
       .sort();
 
-    const unicCollection = new Set(res);
-    const arr = Array.from(unicCollection);
+    const arr = Array.from(new Set(res));
 
     const lengths: number[] = [];
 
     for (let i = 0; i < arr.length; i++) {
-      const lengthOfBrand: number = res.filter((obj, id) => {
+      const lengthOfBrand: number = res.filter((obj) => {
         return obj === arr[i];
       }).length;
       lengths.push(lengthOfBrand);
     }
 
-    const brandFilter: Array<any> = [];
+    const brandFilter: StateProperties[] = [];
+
     const createObj = (key: string, value: number) => {
       brandFilter.push({ brand: key, count: value });
     };
+
     for (let i = 0; i < arr.length; i++) {
       createObj(arr[i], lengths[i]);
     }
-    setMassiveOfBrands(brandFilter);
+
+    setArrayOfBrands(brandFilter);
   }, []);
 
   return (
@@ -138,7 +135,7 @@ const Filter = () => {
             <div className="filter-search__search-icon"></div>
           </div>
           <ul className="checkbox">
-            {massiveOfBrands.map((obj, id) => {
+            {arrayOfBrands.map((obj, id) => {
               return (
                 <li className="checkbox__item" key={id}>
                   <label className="checkbox__lable">
@@ -159,11 +156,11 @@ const Filter = () => {
         <div className="filter__category">
           <p className="filter__title">Категории</p>
           <ul className="filter__category-list">
-            {category.map((obj, id) => {
+            {categoryArray.map((obj, id) => {
               return (
                 <li
                   className={
-                    obj.categoryProperty === categoryProperty
+                    obj.categoryProperty === category
                       ? 'filter__category-item active'
                       : 'filter__category-item'
                   }
