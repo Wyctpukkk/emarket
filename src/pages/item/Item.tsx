@@ -7,6 +7,9 @@ import { useAppDispatch } from '../../hooks/redux';
 import db from '../../db.json';
 import shareSvg from '../../assets/share.svg';
 import priceSvg from '../../assets/price-black.svg';
+import { useMediaQuery } from '@chakra-ui/react';
+import { Header } from '../../components/header/Header';
+import { HeaderMobile } from '../../components/headerMobile/HeaderMobile';
 
 const Item = () => {
   const { uid } = useParams();
@@ -46,8 +49,11 @@ const Item = () => {
     dispatch(addCatalogProduct(obj));
   };
 
+  const [isLargerThan1200] = useMediaQuery('(min-width: 1200px)');
+
   return (
     <div className="wrapper">
+      {isLargerThan1200 ? <Header /> : <HeaderMobile />}
       <Adress />
       {item.map((obj, id) => {
         return (

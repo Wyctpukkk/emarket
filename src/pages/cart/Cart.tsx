@@ -8,6 +8,9 @@ import {
   removeOneProduct,
   removeProduct,
 } from '../../store/reducers/cartSlice';
+import { useMediaQuery } from '@chakra-ui/react';
+import { Header } from '../../components/header/Header';
+import { HeaderMobile } from '../../components/headerMobile/HeaderMobile';
 
 const Cart = () => {
   interface cartState {
@@ -38,8 +41,11 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
+  const [isLargerThan1200] = useMediaQuery('(min-width: 1200px)');
+
   return (
     <div className="wrapper">
+      {isLargerThan1200 ? <Header /> : <HeaderMobile />}
       <Adress />
       <p className="cart-title">Корзина</p>
       {arrayOfItems.map((obj, id) => {
@@ -64,22 +70,22 @@ const Cart = () => {
               </div>
             </li>
             <li className="cart-list__item">
-              <button
-                className="cart-list__buttons"
-                onClick={() => delOneItem(obj)}
-              >
-                -
-              </button>
-              <span>{obj.count}</span>
-              <button
-                className="cart-list__buttons"
-                onClick={() => addItem(obj)}
-              >
-                +
-              </button>
-            </li>
-            <li className="cart-list__item">{obj.price} ₸</li>
-            <li className="cart-list__item">
+              <div className="cart-list__item_counter">
+                <button
+                  className="cart-list__buttons"
+                  onClick={() => delOneItem(obj)}
+                >
+                  -
+                </button>
+                <span>{obj.count}</span>
+                <button
+                  className="cart-list__buttons"
+                  onClick={() => addItem(obj)}
+                >
+                  +
+                </button>
+              </div>
+              <div className="cart-list__item_price"> {obj.price} ₸</div>
               <button
                 className="button-delete"
                 onClick={() => delWholeItem(obj)}

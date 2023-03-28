@@ -3,6 +3,9 @@
   justify-content: space-between;
   gap: 10px;
   margin: 25px 0px 30px 0px;
+  @media (max-width: 1400px) {
+    overflow-y: scroll;
+  }
   &__item {
     button {
       padding: 17px;

@@ -3,12 +3,21 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  @media (max-width: 560px) {
+    display: block;
+  }
   &__title {
     font-weight: 500;
     font-size: 40px;
     line-height: 120%;
     text-transform: uppercase;
     color: #111111;
+    @media (max-width: 1200px) {
+      font-size: 30px;
+    }
+    @media (max-width: 680px) {
+      font-size: 20px;
+    }
   }
 
   &__select {

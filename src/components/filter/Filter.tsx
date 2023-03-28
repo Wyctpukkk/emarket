@@ -32,6 +32,7 @@ const Filter = () => {
     brand: string;
     count: number;
   }
+
   const [arrayOfBrands, setArrayOfBrands] = useState<StateProperties[]>([]);
 
   const dispatch = useAppDispatch();
@@ -51,7 +52,7 @@ const Filter = () => {
   };
 
   const onChangeMaxPriceSelected = (max: number | string) => {
-    dispatch(setMaxPrice(+max));
+    max === '' ? dispatch(setMaxPrice(10000)) : dispatch(setMaxPrice(+max));
   };
 
   const onClickBrandSelected = (value: string) => {

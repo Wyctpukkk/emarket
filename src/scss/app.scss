@@ -1,6 +1,7 @@
 @import url(../scss/_variables.scss);
 @import url(../scss/resetstyle.scss);
 @import url(../components/header/Header.module.scss);
+@import url(../components/headerMobile/HeaderMobile.module.scss);
 @import url(../components/footer/Footer.module.scss);
 @import url(../components/categories/Categories.module.scss);
 @import url(../components/cards/Cards.module.scss);
@@ -22,4 +23,7 @@
 .wrapper {
   max-width: 1366px;
   margin: 0 auto;
+  @media (max-width: 1400px) {
+    margin: 0px 30px 0px 30px;
+  }
 }

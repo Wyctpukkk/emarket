@@ -1,7 +1,9 @@
 .cards {
+  margin: 0 15px 0 15px;
   max-width: 1020px;
   &__list {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 21px;
   }

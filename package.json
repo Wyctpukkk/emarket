@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://wyctpukkk.github.io/emarket/",
   "dependencies": {
+    "@chakra-ui/react": "^2.5.4",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -14,6 +17,7 @@
     "@types/react-dom": "^18.0.11",
     "@types/react-redux": "^7.1.25",
     "@types/webrtc": "^0.0.33",
+    "framer-motion": "^10.9.2",
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

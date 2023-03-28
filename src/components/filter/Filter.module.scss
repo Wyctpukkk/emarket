@@ -1,7 +1,9 @@
 .filter-wrapper {
-  max-width: 240px;
 }
 .filter {
+  @media (max-width: 1400px) {
+    margin-left: 30px;
+  }
   &__title {
     font-weight: 500;
     font-size: 16px;

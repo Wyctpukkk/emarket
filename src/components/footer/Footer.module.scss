@@ -6,6 +6,7 @@
 .columns {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   &__item {
     margin: 71px 40px 0px 0px;
   }
@@ -147,6 +148,7 @@
   }
 }
 .contacts {
+  padding-bottom: 50px;
   &__title {
     font-weight: 600;
     font-size: 20px;
