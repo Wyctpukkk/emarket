@@ -1,0 +1,42 @@
+.admin-panel {
+  margin: 30px;
+  max-width: 80vw;
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+  }
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    align-items: center;
+    input {
+      height: 30px;
+      border: 1px solid grey;
+      margin: 10px;
+      padding: 10px;
+    }
+  }
+}
+.category-label {
+  display: flex;
+  flex-direction: column;
+  &__checkbox {
+    display: flex;
+    justify-content: end;
+    input {
+      margin: 0 15px 0 15px;
+    }
+  }
+}
+.card {
+  &__action {
+    padding: 5px;
+    background-color: #ffc85e;
+    margin: 5px;
+  }
+}

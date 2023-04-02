@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Catalog } from './pages/catalog/Catalog';
 import { Cart } from './pages/cart/Cart';
 import { Item } from './pages/item/Item';
-import { Footer } from '../src/components/footer/Footer';
+import { Admin } from './pages/admin/Admin';
 
 const App = () => {
   const store = setupStore();
@@ -14,10 +14,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Catalog />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/item/:uid" element={<Item />} />
         <Route path="*" element={<Navigate to="/" />}></Route>
       </Routes>
-      <Footer />
     </Provider>
   );
 };

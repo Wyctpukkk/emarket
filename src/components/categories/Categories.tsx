@@ -1,12 +1,13 @@
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { setCategory } from '../../store/reducers/sortSlice';
 
+interface objCategoryProperties {
+  first: string;
+  second: string;
+  categoryProperty: number;
+}
+
 const Categories = () => {
-  interface objCategoryProperties {
-    first: string;
-    second: string;
-    categoryProperty: number;
-  }
   const categoryArray: objCategoryProperties[] = [
     { first: 'Уход', second: 'за телом', categoryProperty: 1 },
     { first: 'Уход', second: 'за руками', categoryProperty: 2 },

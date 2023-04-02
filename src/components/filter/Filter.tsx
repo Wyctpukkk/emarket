@@ -8,13 +8,18 @@ import {
 } from '../../store/reducers/sortSlice';
 import { useEffect, useState } from 'react';
 import db from '../../db.json';
+import { Product } from '../../models/IProduct';
 
+interface StateProperties {
+  brand: string;
+  count: number;
+}
+interface objCategoryProperties {
+  first: string;
+  second: string;
+  categoryProperty: number;
+}
 const Filter = () => {
-  interface objCategoryProperties {
-    first: string;
-    second: string;
-    categoryProperty: number;
-  }
   const categoryArray: objCategoryProperties[] = [
     { first: 'Уход', second: 'за телом', categoryProperty: 1 },
     { first: 'Уход', second: 'за руками', categoryProperty: 2 },
@@ -28,10 +33,7 @@ const Filter = () => {
     { first: 'Гигиена', second: 'полости рта', categoryProperty: 10 },
     { first: 'Бумажная', second: 'продукция', categoryProperty: 11 },
   ];
-  interface StateProperties {
-    brand: string;
-    count: number;
-  }
+  const [data, setData] = useState<any>([]);
 
   const [arrayOfBrands, setArrayOfBrands] = useState<StateProperties[]>([]);
 
@@ -66,13 +68,21 @@ const Filter = () => {
   };
 
   useEffect(() => {
-    const res = db
-      .map((obj) => {
+    if (localStorage.length === 0 || localStorage.database === '[]') {
+      setData(db);
+    } else {
+      setData(JSON.parse(localStorage.getItem('database')!));
+    }
+  }, []);
+
+  useEffect(() => {
+    const res: string[] = data
+      .map((obj: Product) => {
         return obj.brand;
       })
       .sort();
 
-    const arr = Array.from(new Set(res));
+    const arr: string[] = Array.from(new Set(res));
 
     const lengths: number[] = [];
 
@@ -94,7 +104,7 @@ const Filter = () => {
     }
 
     setArrayOfBrands(brandFilter);
-  }, []);
+  }, [data]);
 
   return (
     <div className="filter-wrapper">

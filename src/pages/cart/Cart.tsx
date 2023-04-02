@@ -11,6 +11,7 @@ import {
 import { useMediaQuery } from '@chakra-ui/react';
 import { Header } from '../../components/header/Header';
 import { HeaderMobile } from '../../components/headerMobile/HeaderMobile';
+import { Footer } from '../../components/footer/Footer';
 
 const Cart = () => {
   interface cartState {
@@ -44,66 +45,70 @@ const Cart = () => {
   const [isLargerThan1200] = useMediaQuery('(min-width: 1200px)');
 
   return (
-    <div className="wrapper">
-      {isLargerThan1200 ? <Header /> : <HeaderMobile />}
-      <Adress />
-      <p className="cart-title">Корзина</p>
-      {arrayOfItems.map((obj, id) => {
-        return (
-          <ul className="cart-list" key={id}>
-            <li className="cart-list__item">
-              <div className="cart-list__image-wrapper">
-                <img src={obj.url} alt="item" />
-              </div>
-            </li>
-            <li className="cart-list__item">
-              <div className="info">
-                <p className="info__name">
-                  <span>{obj.name}</span>
-                  {obj.desc}
-                </p>
-                <p className="info__desc">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam interdum ut justo, vestibulum sagittis iaculis iaculis.
-                  Quis mattis vulputate feugiat massa vestibulum duis.
-                </p>
-              </div>
-            </li>
-            <li className="cart-list__item">
-              <div className="cart-list__item_counter">
+    <>
+      <div className="wrapper">
+        {isLargerThan1200 ? <Header /> : <HeaderMobile />}
+        <Adress />
+        <p className="cart-title">Корзина</p>
+        {arrayOfItems.map((obj, id) => {
+          return (
+            <ul className="cart-list" key={id}>
+              <li className="cart-list__item">
+                <div className="cart-list__image-wrapper">
+                  <img src={obj.url} alt="item" />
+                </div>
+              </li>
+              <li className="cart-list__item">
+                <div className="info">
+                  <p className="info__name">
+                    <span>{obj.name}</span>
+                    {obj.desc}
+                  </p>
+                  <p className="info__desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nullam interdum ut justo, vestibulum sagittis iaculis
+                    iaculis. Quis mattis vulputate feugiat massa vestibulum
+                    duis.
+                  </p>
+                </div>
+              </li>
+              <li className="cart-list__item">
+                <div className="cart-list__item_counter">
+                  <button
+                    className="cart-list__buttons"
+                    onClick={() => delOneItem(obj)}
+                  >
+                    -
+                  </button>
+                  <span>{obj.count}</span>
+                  <button
+                    className="cart-list__buttons"
+                    onClick={() => addItem(obj)}
+                  >
+                    +
+                  </button>
+                </div>
+                <div className="cart-list__item_price"> {obj.price} ₸</div>
                 <button
-                  className="cart-list__buttons"
-                  onClick={() => delOneItem(obj)}
+                  className="button-delete"
+                  onClick={() => delWholeItem(obj)}
                 >
-                  -
+                  <img src={trashSvg} alt="delete" />
                 </button>
-                <span>{obj.count}</span>
-                <button
-                  className="cart-list__buttons"
-                  onClick={() => addItem(obj)}
-                >
-                  +
-                </button>
-              </div>
-              <div className="cart-list__item_price"> {obj.price} ₸</div>
-              <button
-                className="button-delete"
-                onClick={() => delWholeItem(obj)}
-              >
-                <img src={trashSvg} alt="delete" />
-              </button>
-            </li>
-          </ul>
-        );
-      })}
+              </li>
+            </ul>
+          );
+        })}
 
-      <div className="cart-accept">
-        <button className="cart-accept__btn" onClick={() => acceptCart()}>
-          Оформить заказ
-        </button>
-        <span className="cart-accept__total-price">{totalPrice} ₸</span>
+        <div className="cart-accept">
+          <button className="cart-accept__btn" onClick={() => acceptCart()}>
+            Оформить заказ
+          </button>
+          <span className="cart-accept__total-price">{totalPrice} ₸</span>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

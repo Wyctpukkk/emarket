@@ -1,25 +1,27 @@
-import db from '../../db.json';
 import { useEffect, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux';
 import { Product } from '../../models/IProduct';
 import { Link } from 'react-router-dom';
 import { addCatalogProduct } from '../../store/reducers/cartSlice';
 import { Pagination } from '../pagination/Pagination';
+import db from '../../db.json';
+
+interface sortState {
+  brand: string[];
+  minPrice: number;
+  maxPrice: number;
+  search: string;
+  category: number;
+  sort: {
+    name: string;
+    sortProperty: string;
+  };
+}
 
 const Cards = () => {
-  interface sortState {
-    brand: string[];
-    minPrice: number;
-    maxPrice: number;
-    search: string;
-    category: number;
-    sort: {
-      name: string;
-      sortProperty: string;
-    };
-  }
   const dispatch = useAppDispatch();
-  const [items, setItems] = useState(db);
+  const [data, setData] = useState<any>([]);
+  const [items, setItems] = useState<any>(data);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage] = useState<number>(9);
@@ -42,11 +44,23 @@ const Cards = () => {
   };
 
   useEffect(() => {
+    if (localStorage.length === 0 || localStorage.database === '[]') {
+      setData(db);
+    } else {
+      setData(JSON.parse(localStorage.getItem('database')!));
+    }
+  }, []);
+
+  useEffect(() => {
+    setItems(data);
+  }, [data]);
+
+  useEffect(() => {
     if (category === 0) {
-      setItems(db);
+      setItems(data);
     } else {
       setItems([
-        ...db.filter((obj: Product) => {
+        ...data.filter((obj: Product) => {
           return obj.category.includes(category);
         }),
       ]);
@@ -55,10 +69,10 @@ const Cards = () => {
 
   useEffect(() => {
     if (search === '') {
-      setItems(db);
+      setItems(data);
     } else {
       setItems([
-        ...db.filter((obj: Product) => {
+        ...data.filter((obj: Product) => {
           return obj.productedBy.toLowerCase().includes(search.toLowerCase());
         }),
       ]);
@@ -67,7 +81,7 @@ const Cards = () => {
 
   useEffect(() => {
     setItems([
-      ...db.filter((obj: Product) => {
+      ...data.filter((obj: Product) => {
         return obj.price > minPrice && obj.price < maxPrice;
       }),
     ]);
@@ -75,10 +89,10 @@ const Cards = () => {
 
   useEffect(() => {
     if (brand.length === 0) {
-      setItems(db);
+      setItems(data);
     } else {
       setItems([
-        ...db.filter((obj: Product) => {
+        ...data.filter((obj: Product) => {
           return brand.includes(obj.brand);
         }),
       ]);
