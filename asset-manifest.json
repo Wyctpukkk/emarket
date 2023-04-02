@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/emarket/static/css/main.219a0b49.css",
-    "main.js": "/emarket/static/js/main.61aa3abe.js",
+    "main.css": "/emarket/static/css/main.b8875d48.css",
+    "main.js": "/emarket/static/js/main.810f3949.js",
     "static/media/support.svg": "/emarket/static/media/support.13a11c507539d6e880bc.svg",
     "static/media/Logo.svg": "/emarket/static/media/Logo.db083c0f313537c94684.svg",
     "static/media/logo-white.svg": "/emarket/static/media/logo-white.32fbeab907ed8811525a.svg",
@@ -26,11 +26,11 @@
     "static/media/price.svg": "/emarket/static/media/price.5e96ff0389bda2c46910.svg",
     "static/media/pagination.svg": "/emarket/static/media/pagination.8009929457bde0328f8f182170fd2c0f.svg",
     "static/media/arrow.svg": "/emarket/static/media/arrow.35ab94e2f8817f324bd3.svg",
-    "main.219a0b49.css.map": "/emarket/static/css/main.219a0b49.css.map",
-    "main.61aa3abe.js.map": "/emarket/static/js/main.61aa3abe.js.map"
+    "main.b8875d48.css.map": "/emarket/static/css/main.b8875d48.css.map",
+    "main.810f3949.js.map": "/emarket/static/js/main.810f3949.js.map"
   },
   "entrypoints": [
-    "static/css/main.219a0b49.css",
-    "static/js/main.61aa3abe.js"
+    "static/css/main.b8875d48.css",
+    "static/js/main.810f3949.js"
   ]
 }
