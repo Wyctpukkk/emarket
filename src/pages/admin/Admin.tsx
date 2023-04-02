@@ -1,6 +1,7 @@
 import db from '../../db.json';
 import { useState, useEffect } from 'react';
 import { Product } from '../../models/IProduct';
+import { Link } from 'react-router-dom';
 
 interface objCategoryProperties {
   first: string;
@@ -294,6 +295,9 @@ const Admin = () => {
         <button className="card__action" onClick={() => clearInputs()}>
           Очистить поля
         </button>
+        <Link to={'/'} className="card__action" onClick={() => clearInputs()}>
+          На главную
+        </Link>
       </div>
     </div>
   );

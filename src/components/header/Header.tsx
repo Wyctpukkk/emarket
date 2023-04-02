@@ -58,7 +58,7 @@ const Header = () => {
       <span className="line"></span>
       <div className="wrapper">
         <article className="downheader">
-          <Link to={'/'} className="downheader__logotype"></Link>
+          <Link to={'/admin'} className="downheader__logotype"></Link>
           <button className="downheader__catalog">
             Каталог
             <span className="downheader__catalog_icon"></span>
