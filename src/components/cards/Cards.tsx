@@ -4,18 +4,7 @@ import { Link } from 'react-router-dom';
 import { Product } from '../../models/IProduct';
 import { addCatalogProduct } from '../../store/reducers/cartSlice';
 import { Pagination } from '../pagination/Pagination';
-
-interface sortState {
-  brand: string[];
-  minPrice: number;
-  maxPrice: number;
-  search: string;
-  category: number;
-  sort: {
-    name: string;
-    sortProperty: string;
-  };
-}
+import { Category } from '../../models/ICategory';
 
 const Cards: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -35,8 +24,9 @@ const Cards: React.FC = () => {
     setCurrentPage(pageNumber);
   };
 
-  const state: sortState = useAppSelector((state) => state.sortReducer);
-  const { category, search, minPrice, maxPrice, brand } = state;
+  const { category, search, minPrice, maxPrice, brand } = useAppSelector(
+    (state) => state.sortReducer
+  );
 
   const sortProperty: string = useAppSelector(
     (state) => state.sortReducer.sort.sortProperty
@@ -150,6 +140,19 @@ const Cards: React.FC = () => {
     }
   }, [sortProperty, db]);
 
+  const categories = useAppSelector((state) => state.dataReducer.categoryArray);
+
+  const showCategories = (arr: number[]) => {
+    const names: string[] = [];
+    categories.map((obj) => {
+      return arr.includes(obj.categoryProperty)
+        ? names.push(obj.first + ' ' + obj.second + ' ')
+        : '';
+    });
+
+    return names.join(',');
+  };
+
   return (
     <div className="cards">
       {items && (
@@ -182,7 +185,7 @@ const Cards: React.FC = () => {
                     Бренд:<span>{obj.brand}</span>
                   </li>
                   <li className="card__details_item">
-                    Тип ухода:<span>{obj.category}</span>
+                    Тип ухода:<span>{showCategories(obj.category)}</span>
                   </li>
                 </ul>
                 <div className="card__payload">
