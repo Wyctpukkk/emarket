@@ -4,7 +4,6 @@ import { Product } from '../../models/IProduct';
 import { Link } from 'react-router-dom';
 import { addCatalogProduct } from '../../store/reducers/cartSlice';
 import { Pagination } from '../pagination/Pagination';
-import db from '../../db.json';
 
 interface sortState {
   brand: string[];
@@ -20,8 +19,13 @@ interface sortState {
 
 const Cards = () => {
   const dispatch = useAppDispatch();
-  const [data, setData] = useState<any>([]);
-  const [items, setItems] = useState<any>(data);
+  const db: Product[] = useAppSelector((state) => state.dataReducer.database);
+
+  const [items, setItems] = useState<Product[]>(db);
+
+  useEffect(() => {
+    setItems(db);
+  }, [db]);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage] = useState<number>(9);
@@ -39,28 +43,18 @@ const Cards = () => {
     (state) => state.sortReducer.sort.sortProperty
   );
 
+  console.log(sortProperty);
+
   const onClickAddCatalogProduct = (obj: Product) => {
     dispatch(addCatalogProduct(obj));
   };
 
   useEffect(() => {
-    if (localStorage.length === 0 || localStorage.database === '[]') {
-      setData(db);
-    } else {
-      setData(JSON.parse(localStorage.getItem('database')!));
-    }
-  }, []);
-
-  useEffect(() => {
-    setItems(data);
-  }, [data]);
-
-  useEffect(() => {
     if (category === 0) {
-      setItems(data);
+      setItems(db);
     } else {
       setItems([
-        ...data.filter((obj: Product) => {
+        ...db.filter((obj: Product) => {
           return obj.category.includes(category);
         }),
       ]);
@@ -69,10 +63,10 @@ const Cards = () => {
 
   useEffect(() => {
     if (search === '') {
-      setItems(data);
+      setItems(db);
     } else {
       setItems([
-        ...data.filter((obj: Product) => {
+        ...db.filter((obj: Product) => {
           return obj.productedBy.toLowerCase().includes(search.toLowerCase());
         }),
       ]);
@@ -81,7 +75,7 @@ const Cards = () => {
 
   useEffect(() => {
     setItems([
-      ...data.filter((obj: Product) => {
+      ...db.filter((obj: Product) => {
         return obj.price > minPrice && obj.price < maxPrice;
       }),
     ]);
@@ -89,10 +83,10 @@ const Cards = () => {
 
   useEffect(() => {
     if (brand.length === 0) {
-      setItems(data);
+      setItems(db);
     } else {
       setItems([
-        ...data.filter((obj: Product) => {
+        ...db.filter((obj: Product) => {
           return brand.includes(obj.brand);
         }),
       ]);
@@ -100,54 +94,59 @@ const Cards = () => {
   }, [brand]);
 
   useEffect(() => {
-    if (sortProperty === 'priceUp') {
-      setItems([
-        ...items.sort((a: Product, b: Product) => {
-          if (a.price > b.price) {
-            return 1;
-          }
-          if (a.price < b.price) {
-            return -1;
-          }
-          return 0;
-        }),
-      ]);
-    } else if (sortProperty === 'priceDown') {
-      setItems([
-        ...items.sort((a: Product, b: Product) => {
-          if (a.price > b.price) {
-            return -1;
-          }
-          if (a.price < b.price) {
-            return 1;
-          }
-          return 0;
-        }),
-      ]);
-    } else if (sortProperty === 'titleDown') {
-      setItems([
-        ...items.sort((a: Product, b: Product) => {
-          if (a.name > b.name) {
-            return 1;
-          }
-          if (a.name < b.name) {
-            return -1;
-          }
-          return 0;
-        }),
-      ]);
-    } else if (sortProperty === 'titleUp') {
-      setItems([
-        ...items.sort((a: Product, b: Product) => {
-          if (a.name > b.name) {
-            return -1;
-          }
-          if (a.name < b.name) {
-            return 1;
-          }
-          return 0;
-        }),
-      ]);
+    switch (sortProperty) {
+      case 'priceUp':
+        setItems([
+          ...items.slice().sort((a: Product, b: Product) => {
+            if (a.price > b.price) {
+              return 1;
+            }
+            if (a.price < b.price) {
+              return -1;
+            }
+            return 0;
+          }),
+        ]);
+        break;
+      case 'priceDown':
+        setItems([
+          ...items.slice().sort((a: Product, b: Product) => {
+            if (a.price > b.price) {
+              return -1;
+            }
+            if (a.price < b.price) {
+              return 1;
+            }
+            return 0;
+          }),
+        ]);
+        break;
+      case 'titleDown':
+        setItems([
+          ...items.slice().sort((a: Product, b: Product) => {
+            if (a.name > b.name) {
+              return 1;
+            }
+            if (a.name < b.name) {
+              return -1;
+            }
+            return 0;
+          }),
+        ]);
+        break;
+      case 'titleUp':
+        setItems([
+          ...items.slice().sort((a: Product, b: Product) => {
+            if (a.name > b.name) {
+              return -1;
+            }
+            if (a.name < b.name) {
+              return 1;
+            }
+            return 0;
+          }),
+        ]);
+        break;
     }
   }, [sortProperty]);
 

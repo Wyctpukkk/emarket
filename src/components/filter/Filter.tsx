@@ -7,7 +7,6 @@ import {
   setBrand,
 } from '../../store/reducers/sortSlice';
 import { useEffect, useState } from 'react';
-import db from '../../db.json';
 import { Product } from '../../models/IProduct';
 
 interface StateProperties {
@@ -19,6 +18,7 @@ interface objCategoryProperties {
   second: string;
   categoryProperty: number;
 }
+
 const Filter = () => {
   const categoryArray: objCategoryProperties[] = [
     { first: 'Уход', second: 'за телом', categoryProperty: 1 },
@@ -33,6 +33,10 @@ const Filter = () => {
     { first: 'Гигиена', second: 'полости рта', categoryProperty: 10 },
     { first: 'Бумажная', second: 'продукция', categoryProperty: 11 },
   ];
+  const db: Product[] = useAppSelector((state) => state.dataReducer.database);
+  useEffect(() => {
+    setData(db);
+  }, [db]);
   const [data, setData] = useState<any>([]);
 
   const [arrayOfBrands, setArrayOfBrands] = useState<StateProperties[]>([]);
@@ -66,14 +70,6 @@ const Filter = () => {
     }
     dispatch(setBrand(array));
   };
-
-  useEffect(() => {
-    if (localStorage.length === 0 || localStorage.database === '[]') {
-      setData(db);
-    } else {
-      setData(JSON.parse(localStorage.getItem('database')!));
-    }
-  }, []);
 
   useEffect(() => {
     const res: string[] = data

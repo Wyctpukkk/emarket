@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Product } from '../../models/IProduct';
 import { useState, useEffect } from 'react';
 import { addCatalogProduct } from '../../store/reducers/cartSlice';
-import { useAppDispatch } from '../../hooks/redux';
-import db from '../../db.json';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import shareSvg from '../../assets/share.svg';
 import priceSvg from '../../assets/price-black.svg';
 import { useMediaQuery } from '@chakra-ui/react';
@@ -15,6 +14,7 @@ import { Footer } from '../../components/footer/Footer';
 const Item = () => {
   const { uid } = useParams();
   const dispatch = useAppDispatch();
+  const db: Product[] = useAppSelector((state) => state.dataReducer.database);
   const [item, setItem] = useState<Product[]>([]);
   const uidProperty: number = +uid!;
 

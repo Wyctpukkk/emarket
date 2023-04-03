@@ -1,7 +1,8 @@
-import db from '../../db.json';
 import { useState, useEffect } from 'react';
 import { Product } from '../../models/IProduct';
 import { Link } from 'react-router-dom';
+import { useAppSelector, useAppDispatch } from '../../hooks/redux';
+import { setData } from '../../store/reducers/dataSlice';
 
 interface objCategoryProperties {
   first: string;
@@ -23,8 +24,15 @@ const Admin = () => {
     { first: 'Гигиена', second: 'полости рта', categoryProperty: 10 },
     { first: 'Бумажная', second: 'продукция', categoryProperty: 11 },
   ];
+  const dispatch = useAppDispatch();
 
-  const [data, setData] = useState<Product[]>([]);
+  const db: Product[] = useAppSelector((state) => state.dataReducer.database);
+
+  useEffect(() => {
+    setNewData(db);
+  }, [db]);
+
+  const [data, setNewData] = useState<Product[]>([]);
 
   const [url, setUrl] = useState<string>('');
   const [name, setName] = useState<string>('');
@@ -37,20 +45,14 @@ const Admin = () => {
   const [desc, setDesc] = useState<string>('');
   const [price, setPrice] = useState<number>(0);
 
-  useEffect(() => {
-    if (localStorage.length === 0 || localStorage.database === '[]') {
-      setData(db);
-    } else {
-      setData(JSON.parse(localStorage.getItem('database')!));
-    }
-  }, []);
-
   const deleteItem = (uid: number) => {
-    setData([
-      ...data.filter((obj: Product) => {
-        return obj.uid !== uid;
-      }),
-    ]);
+    dispatch(
+      setData([
+        ...data.filter((obj: Product) => {
+          return obj.uid !== uid;
+        }),
+      ])
+    );
   };
 
   const addItem = (
@@ -79,7 +81,7 @@ const Admin = () => {
       price,
       count: 1,
     };
-    setData([...array, item]);
+    dispatch(setData([...array, item]));
     clearInputs();
   };
 

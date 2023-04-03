@@ -1,11 +1,15 @@
 import { Link, useLocation } from 'react-router-dom';
-import db from '../../db.json';
+import { useAppSelector } from '../../hooks/redux';
+import { Product } from '../../models/IProduct';
+
+interface objAdressProperties {
+  path: string;
+  name: string;
+}
 
 const Adress = () => {
-  interface objAdressProperties {
-    path: string;
-    name: string;
-  }
+  const db: Product[] = useAppSelector((state) => state.dataReducer.database);
+
   let { pathname } = useLocation();
 
   const array: objAdressProperties[] = [];

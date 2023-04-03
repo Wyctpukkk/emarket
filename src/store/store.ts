@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import sortReducer from './reducers/sortSlice';
 import cartReducer from './reducers/cartSlice';
+import dataReducer from './reducers/dataSlice';
 
 const rootReducer = combineReducers({
   sortReducer,
   cartReducer,
+  dataReducer,
 });
 
 export const setupStore = () => {
