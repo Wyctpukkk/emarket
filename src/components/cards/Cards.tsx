@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Product } from '../../models/IProduct';
 import { addCatalogProduct } from '../../store/reducers/cartSlice';
 import { Pagination } from '../pagination/Pagination';
-import { Category } from '../../models/ICategory';
 
 const Cards: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -146,11 +145,11 @@ const Cards: React.FC = () => {
     const names: string[] = [];
     categories.map((obj) => {
       return arr.includes(obj.categoryProperty)
-        ? names.push(obj.first + ' ' + obj.second + ' ')
+        ? names.push(' ' + obj.first + ' ' + obj.second)
         : '';
     });
 
-    return names.join(',');
+    return names.join(',').toLowerCase();
   };
 
   return (
