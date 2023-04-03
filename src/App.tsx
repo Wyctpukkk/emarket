@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
-
 import { useAppDispatch } from './hooks/redux';
-
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Catalog } from './pages/catalog/Catalog';
 import { Cart } from './pages/cart/Cart';

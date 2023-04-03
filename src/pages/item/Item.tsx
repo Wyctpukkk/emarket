@@ -11,7 +11,7 @@ import { Header } from '../../components/header/Header';
 import { HeaderMobile } from '../../components/headerMobile/HeaderMobile';
 import { Footer } from '../../components/footer/Footer';
 
-const Item = () => {
+const Item: React.FC = () => {
   const { uid } = useParams();
   const dispatch = useAppDispatch();
   const db: Product[] = useAppSelector((state) => state.dataReducer.database);
@@ -28,7 +28,7 @@ const Item = () => {
     });
 
     return setItem(res);
-  }, [uidProperty]);
+  }, [uidProperty, db]);
 
   const plusItem = () => {
     const obj = { ...item[0] };

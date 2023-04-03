@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { setSort } from '../../store/reducers/sortSlice';
 
-const Sort = () => {
+interface objSortProperties {
+  name: string;
+  sortProperty: string;
+}
+
+const Sort: React.FC = () => {
   const dispatch = useAppDispatch();
   const [showSortMenu, setShowSortMenu] = useState<Boolean>(false);
-
-  interface objSortProperties {
-    name: string;
-    sortProperty: string;
-  }
 
   const list: objSortProperties[] = [
     { name: 'Цене↑', sortProperty: 'priceUp' },

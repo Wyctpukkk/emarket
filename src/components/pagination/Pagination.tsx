@@ -1,21 +1,24 @@
 import arrowSvg from '../../assets/pagination.svg';
 
-const Pagination = ({
-  itemsPerPage,
-  totalItems,
-  paginate,
-  currentPage,
-}: {
+interface Props {
   itemsPerPage: number;
   totalItems: number;
   paginate: any;
   currentPage: number;
+}
+
+const Pagination: React.FC<Props> = ({
+  itemsPerPage,
+  totalItems,
+  paginate,
+  currentPage,
 }) => {
   const pageNumbers: number[] = [];
 
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
+
   return (
     <div className="pagination">
       <button

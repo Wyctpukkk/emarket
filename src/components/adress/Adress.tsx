@@ -7,7 +7,7 @@ interface objAdressProperties {
   name: string;
 }
 
-const Adress = () => {
+const Adress: React.FC = () => {
   const db: Product[] = useAppSelector((state) => state.dataReducer.database);
 
   let { pathname } = useLocation();

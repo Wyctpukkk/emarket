@@ -1,18 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/redux';
-import { Product } from '../../models/IProduct';
 import searchSvg from '../../assets/search2.svg';
 import catalogSvg from '../../assets/square2.svg';
 
-const HeaderMobile = () => {
-  interface cartState {
-    arrayOfItems: Product[];
-    totalItems: number;
-    totalPrice: number;
-  }
-
-  const state: cartState = useAppSelector((state) => state.cartReducer);
-  const totalItems = state.totalItems;
+const HeaderMobile: React.FC = () => {
+  const { totalItems } = useAppSelector((state) => state.cartReducer);
 
   return (
     <header className="mob-header">

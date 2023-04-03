@@ -13,12 +13,13 @@ import { Header } from '../../components/header/Header';
 import { HeaderMobile } from '../../components/headerMobile/HeaderMobile';
 import { Footer } from '../../components/footer/Footer';
 
-const Cart = () => {
-  interface cartState {
-    arrayOfItems: Product[];
-    totalItems: number;
-    totalPrice: number;
-  }
+interface cartState {
+  arrayOfItems: Product[];
+  totalItems: number;
+  totalPrice: number;
+}
+
+const Cart: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const state: cartState = useAppSelector((state) => state.cartReducer);

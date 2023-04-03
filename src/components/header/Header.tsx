@@ -1,17 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/redux';
-import { Product } from '../../models/IProduct';
 
-const Header = () => {
-  interface cartState {
-    arrayOfItems: Product[];
-    totalItems: number;
-    totalPrice: number;
-  }
-
-  const state: cartState = useAppSelector((state) => state.cartReducer);
-  const totalPrice = state.totalPrice;
-  const totalItems = state.totalItems;
+const Header: React.FC = () => {
+  const { totalPrice, totalItems } = useAppSelector(
+    (state) => state.cartReducer
+  );
 
   return (
     <header className="header">

@@ -13,31 +13,15 @@ interface StateProperties {
   brand: string;
   count: number;
 }
-interface objCategoryProperties {
-  first: string;
-  second: string;
-  categoryProperty: number;
-}
 
-const Filter = () => {
-  const categoryArray: objCategoryProperties[] = [
-    { first: 'Уход', second: 'за телом', categoryProperty: 1 },
-    { first: 'Уход', second: 'за руками', categoryProperty: 2 },
-    { first: 'Уход', second: 'за ногами', categoryProperty: 3 },
-    { first: 'Уход', second: 'за лицом', categoryProperty: 4 },
-    { first: 'Уход', second: 'за волосами', categoryProperty: 5 },
-    { first: 'Средства', second: 'для загара', categoryProperty: 6 },
-    { first: 'Средства', second: 'для бритья', categoryProperty: 7 },
-    { first: 'Подарочные', second: 'наборы', categoryProperty: 8 },
-    { first: 'Гигиеническая', second: 'продукция', categoryProperty: 9 },
-    { first: 'Гигиена', second: 'полости рта', categoryProperty: 10 },
-    { first: 'Бумажная', second: 'продукция', categoryProperty: 11 },
-  ];
+const Filter: React.FC = () => {
+  const { categoryArray } = useAppSelector((state) => state.dataReducer);
+
   const db: Product[] = useAppSelector((state) => state.dataReducer.database);
   useEffect(() => {
     setData(db);
   }, [db]);
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<Product[]>([]);
 
   const [arrayOfBrands, setArrayOfBrands] = useState<StateProperties[]>([]);
 
@@ -72,21 +56,21 @@ const Filter = () => {
   };
 
   useEffect(() => {
-    const res: string[] = data
+    const allBrandsWithRepeat: string[] = data
       .map((obj: Product) => {
         return obj.brand;
       })
       .sort();
 
-    const arr: string[] = Array.from(new Set(res));
+    const unicalBrands: string[] = Array.from(new Set(allBrandsWithRepeat));
 
-    const lengths: number[] = [];
+    const countOfBrand: number[] = [];
 
-    for (let i = 0; i < arr.length; i++) {
-      const lengthOfBrand: number = res.filter((obj) => {
-        return obj === arr[i];
+    for (let i = 0; i < unicalBrands.length; i++) {
+      const lengthOfBrand: number = allBrandsWithRepeat.filter((obj) => {
+        return obj === unicalBrands[i];
       }).length;
-      lengths.push(lengthOfBrand);
+      countOfBrand.push(lengthOfBrand);
     }
 
     const brandFilter: StateProperties[] = [];
@@ -95,8 +79,8 @@ const Filter = () => {
       brandFilter.push({ brand: key, count: value });
     };
 
-    for (let i = 0; i < arr.length; i++) {
-      createObj(arr[i], lengths[i]);
+    for (let i = 0; i < unicalBrands.length; i++) {
+      createObj(unicalBrands[i], countOfBrand[i]);
     }
 
     setArrayOfBrands(brandFilter);

@@ -7,7 +7,8 @@ import { Sort } from '../../components/sort/Sort';
 import { Footer } from '../../components/footer/Footer';
 import { Header } from '../../components/header/Header';
 import { HeaderMobile } from '../../components/headerMobile/HeaderMobile';
-const Catalog = () => {
+
+const Catalog: React.FC = () => {
   const [isLargerThan1200] = useMediaQuery('(min-width: 1200px)');
 
   return (

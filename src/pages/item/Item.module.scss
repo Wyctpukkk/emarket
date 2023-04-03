@@ -24,7 +24,7 @@
 
   &__image-wrapper {
     text-align: center;
-    min-width: 664px;
+    max-width: 664px;
     max-height: 600px;
   }
 
@@ -64,6 +64,10 @@
     font-size: 30px;
     line-height: 130%;
     color: #111111;
+  }
+  @media (max-width: 1400px) {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 .add {
@@ -109,6 +113,7 @@
 
 .share {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin: 20px 0 20px 0;
   &__icon {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux';
-import { Product } from '../../models/IProduct';
 import { Link } from 'react-router-dom';
+import { Product } from '../../models/IProduct';
 import { addCatalogProduct } from '../../store/reducers/cartSlice';
 import { Pagination } from '../pagination/Pagination';
 
@@ -17,15 +17,14 @@ interface sortState {
   };
 }
 
-const Cards = () => {
+const Cards: React.FC = () => {
   const dispatch = useAppDispatch();
   const db: Product[] = useAppSelector((state) => state.dataReducer.database);
-
-  const [items, setItems] = useState<Product[]>(db);
-
   useEffect(() => {
     setItems(db);
   }, [db]);
+
+  const [items, setItems] = useState<Product[]>(db);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage] = useState<number>(9);
@@ -43,8 +42,6 @@ const Cards = () => {
     (state) => state.sortReducer.sort.sortProperty
   );
 
-  console.log(sortProperty);
-
   const onClickAddCatalogProduct = (obj: Product) => {
     dispatch(addCatalogProduct(obj));
   };
@@ -59,7 +56,7 @@ const Cards = () => {
         }),
       ]);
     }
-  }, [category]);
+  }, [category, db]);
 
   useEffect(() => {
     if (search === '') {
@@ -71,7 +68,7 @@ const Cards = () => {
         }),
       ]);
     }
-  }, [search]);
+  }, [search, db]);
 
   useEffect(() => {
     setItems([
@@ -79,7 +76,7 @@ const Cards = () => {
         return obj.price > minPrice && obj.price < maxPrice;
       }),
     ]);
-  }, [minPrice, maxPrice]);
+  }, [minPrice, maxPrice, db]);
 
   useEffect(() => {
     if (brand.length === 0) {
@@ -91,13 +88,13 @@ const Cards = () => {
         }),
       ]);
     }
-  }, [brand]);
+  }, [brand, db]);
 
   useEffect(() => {
     switch (sortProperty) {
       case 'priceUp':
         setItems([
-          ...items.slice().sort((a: Product, b: Product) => {
+          ...db.slice().sort((a: Product, b: Product) => {
             if (a.price > b.price) {
               return 1;
             }
@@ -108,9 +105,10 @@ const Cards = () => {
           }),
         ]);
         break;
+
       case 'priceDown':
         setItems([
-          ...items.slice().sort((a: Product, b: Product) => {
+          ...db.slice().sort((a: Product, b: Product) => {
             if (a.price > b.price) {
               return -1;
             }
@@ -121,9 +119,10 @@ const Cards = () => {
           }),
         ]);
         break;
+
       case 'titleDown':
         setItems([
-          ...items.slice().sort((a: Product, b: Product) => {
+          ...db.slice().sort((a: Product, b: Product) => {
             if (a.name > b.name) {
               return 1;
             }
@@ -134,9 +133,10 @@ const Cards = () => {
           }),
         ]);
         break;
+
       case 'titleUp':
         setItems([
-          ...items.slice().sort((a: Product, b: Product) => {
+          ...db.slice().sort((a: Product, b: Product) => {
             if (a.name > b.name) {
               return -1;
             }
@@ -148,13 +148,13 @@ const Cards = () => {
         ]);
         break;
     }
-  }, [sortProperty]);
+  }, [sortProperty, db]);
 
   return (
     <div className="cards">
       {items && (
         <ul className="cards__list">
-          {currentItem.map((obj, index) => {
+          {currentItem.map((obj) => {
             return (
               <li key={obj.uid} className="card">
                 <div className="card__image-wrapper">

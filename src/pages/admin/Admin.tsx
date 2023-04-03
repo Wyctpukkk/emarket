@@ -4,33 +4,16 @@ import { Link } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux';
 import { setData } from '../../store/reducers/dataSlice';
 
-interface objCategoryProperties {
-  first: string;
-  second: string;
-  categoryProperty: number;
-}
-
-const Admin = () => {
-  const categoryArray: objCategoryProperties[] = [
-    { first: 'Уход', second: 'за телом', categoryProperty: 1 },
-    { first: 'Уход', second: 'за руками', categoryProperty: 2 },
-    { first: 'Уход', second: 'за ногами', categoryProperty: 3 },
-    { first: 'Уход', second: 'за лицом', categoryProperty: 4 },
-    { first: 'Уход', second: 'за волосами', categoryProperty: 5 },
-    { first: 'Средства', second: 'для загара', categoryProperty: 6 },
-    { first: 'Средства', second: 'для бритья', categoryProperty: 7 },
-    { first: 'Подарочные', second: 'наборы', categoryProperty: 8 },
-    { first: 'Гигиеническая', second: 'продукция', categoryProperty: 9 },
-    { first: 'Гигиена', second: 'полости рта', categoryProperty: 10 },
-    { first: 'Бумажная', second: 'продукция', categoryProperty: 11 },
-  ];
+const Admin: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  const db: Product[] = useAppSelector((state) => state.dataReducer.database);
+  const { categoryArray, database } = useAppSelector(
+    (state) => state.dataReducer
+  );
 
   useEffect(() => {
-    setNewData(db);
-  }, [db]);
+    setNewData(database);
+  }, [database]);
 
   const [data, setNewData] = useState<Product[]>([]);
 
@@ -47,11 +30,11 @@ const Admin = () => {
 
   const deleteItem = (uid: number) => {
     dispatch(
-      setData([
-        ...data.filter((obj: Product) => {
+      setData(
+        [...data].filter((obj: Product) => {
           return obj.uid !== uid;
-        }),
-      ])
+        })
+      )
     );
   };
 
