@@ -23,9 +23,13 @@ const Cards: React.FC = () => {
     setCurrentPage(pageNumber);
   };
 
-  const { category, search, minPrice, maxPrice, brand } = useAppSelector(
-    (state) => state.sortReducer
-  );
+  const {
+    category = 0,
+    search = '',
+    minPrice = 0,
+    maxPrice = 10000,
+    brand = '',
+  } = useAppSelector((state) => state.sortReducer);
 
   const sortProperty: string = useAppSelector(
     (state) => state.sortReducer.sort.sortProperty

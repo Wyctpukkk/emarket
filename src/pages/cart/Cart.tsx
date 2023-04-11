@@ -46,8 +46,8 @@ const Cart: React.FC = () => {
   const [isLargerThan1200] = useMediaQuery('(min-width: 1200px)');
 
   return (
-    <>
-      <div className="wrapper">
+    <div>
+      <div className="wrapper" data-testid="cartPage">
         {isLargerThan1200 ? <Header /> : <HeaderMobile />}
         <Adress />
         <p className="cart-title">Корзина</p>
@@ -109,7 +109,7 @@ const Cart: React.FC = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

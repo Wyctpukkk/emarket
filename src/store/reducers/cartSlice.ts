@@ -63,10 +63,9 @@ export const cartSlice = createSlice({
       );
 
       if (findItem && findItem.count > 1) {
-        findItem.price = findItem.price - action.payload.price / findItem.count;
+        findItem.price = findItem.price - action.payload.price;
 
-        state.totalPrice =
-          state.totalPrice - action.payload.price / findItem.count;
+        state.totalPrice = state.totalPrice - action.payload.price;
 
         findItem.count--;
         state.totalItems = state.totalItems - 1;

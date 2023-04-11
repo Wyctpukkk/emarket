@@ -106,7 +106,7 @@ const Admin: React.FC = () => {
   };
 
   return (
-    <div className="admin-panel">
+    <div className="admin-panel" data-testid="adminPage">
       {data && (
         <ul className="cards__list">
           {data.map((obj: Product) => {

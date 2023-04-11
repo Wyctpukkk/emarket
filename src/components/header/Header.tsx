@@ -51,7 +51,12 @@ const Header: React.FC = () => {
       <span className="line"></span>
       <div className="wrapper">
         <article className="downheader">
-          <Link to={'/admin'} className="downheader__logotype"></Link>
+          <Link
+            data-testid="testAdminLink"
+            to={'/admin'}
+            className="downheader__logotype"
+          ></Link>
+
           <button className="downheader__catalog">
             Каталог
             <span className="downheader__catalog_icon"></span>
@@ -74,14 +79,23 @@ const Header: React.FC = () => {
             <span className="downheader__price-list_icon"></span>
           </button>
           <div className="downheader__cart">
-            <Link to={'cart'} className="downheader__cart-link">
+            <Link
+              data-testid="testCartLink"
+              to={'cart'}
+              className="downheader__cart-link"
+            >
               <span className="downheader__cart-link_img"></span>
-              <span className="downheader__cart-link_count">{totalItems}</span>
+              <span
+                className="downheader__cart-link_count"
+                data-testid="testAmountItems"
+              >
+                {totalItems}
+              </span>
             </Link>
             <div className="downheader__cart-info">
               Корзина
               <br />
-              <span>{totalPrice} ₸</span>
+              <span data-testid="testAmountMoney">{totalPrice} ₸</span>
             </div>
           </div>
         </article>

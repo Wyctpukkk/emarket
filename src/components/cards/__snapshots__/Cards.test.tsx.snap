@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Создание снапшота 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="cards"
+      >
+        <ul
+          class="cards__list"
+        >
+          <li
+            class="card"
+          >
+            <div
+              class="card__image-wrapper"
+            >
+              <img
+                alt="product"
+                class="card__image"
+                src="https://avatars.mds.yandex.net/get-mpic/4370207/img_id8174150561422744942.jpeg/orig"
+              />
+              <div
+                class="card__type"
+              >
+                <div
+                  class="card__type_litr"
+                />
+                0.95
+                 
+                л
+              </div>
+            </div>
+            <a
+              class="card__desc"
+              href="/item/4604049097548"
+            >
+              <span
+                class="card__title"
+              >
+                Neutrale
+              </span>
+               
+              гель для стирки детского белья гипоаллергенный
+            </a>
+            <ul
+              class="card__details"
+            >
+              <li
+                class="card__details_item"
+              >
+                Штрихкод:
+                <span>
+                  4604049097548
+                </span>
+              </li>
+              <li
+                class="card__details_item"
+              >
+                Производитель:
+                <span>
+                  Neutrale
+                </span>
+              </li>
+              <li
+                class="card__details_item"
+              >
+                Бренд:
+                <span>
+                  Neutrale
+                </span>
+              </li>
+              <li
+                class="card__details_item"
+              >
+                Тип ухода:
+                <span />
+              </li>
+            </ul>
+            <div
+              class="card__payload"
+            >
+              <span
+                class="card__cost"
+              >
+                281
+                 ₸
+              </span>
+              <button
+                class="card__add"
+              >
+                В КОРЗИНУ
+              </button>
+              <span
+                class="card__add_icon"
+              />
+            </div>
+          </li>
+        </ul>
+        <div
+          class="pagination-block"
+        >
+          <div
+            class="pagination"
+          >
+            <button
+              class="pagination__prev"
+            >
+              <img
+                alt="prev"
+                src="pagination.svg"
+              />
+            </button>
+            <ul
+              class="pagination__list"
+            >
+              <li
+                class="pagination__item"
+              >
+                <button
+                  class="pagination__page active"
+                >
+                  1
+                </button>
+              </li>
+            </ul>
+            <button
+              class="pagination__next"
+            >
+              <img
+                alt="next"
+                src="pagination.svg"
+              />
+            </button>
+          </div>
+        </div>
+        <p
+          class="decription"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada.
+        </p>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="cards"
+    >
+      <ul
+        class="cards__list"
+      >
+        <li
+          class="card"
+        >
+          <div
+            class="card__image-wrapper"
+          >
+            <img
+              alt="product"
+              class="card__image"
+              src="https://avatars.mds.yandex.net/get-mpic/4370207/img_id8174150561422744942.jpeg/orig"
+            />
+            <div
+              class="card__type"
+            >
+              <div
+                class="card__type_litr"
+              />
+              0.95
+               
+              л
+            </div>
+          </div>
+          <a
+            class="card__desc"
+            href="/item/4604049097548"
+          >
+            <span
+              class="card__title"
+            >
+              Neutrale
+            </span>
+             
+            гель для стирки детского белья гипоаллергенный
+          </a>
+          <ul
+            class="card__details"
+          >
+            <li
+              class="card__details_item"
+            >
+              Штрихкод:
+              <span>
+                4604049097548
+              </span>
+            </li>
+            <li
+              class="card__details_item"
+            >
+              Производитель:
+              <span>
+                Neutrale
+              </span>
+            </li>
+            <li
+              class="card__details_item"
+            >
+              Бренд:
+              <span>
+                Neutrale
+              </span>
+            </li>
+            <li
+              class="card__details_item"
+            >
+              Тип ухода:
+              <span />
+            </li>
+          </ul>
+          <div
+            class="card__payload"
+          >
+            <span
+              class="card__cost"
+            >
+              281
+               ₸
+            </span>
+            <button
+              class="card__add"
+            >
+              В КОРЗИНУ
+            </button>
+            <span
+              class="card__add_icon"
+            />
+          </div>
+        </li>
+      </ul>
+      <div
+        class="pagination-block"
+      >
+        <div
+          class="pagination"
+        >
+          <button
+            class="pagination__prev"
+          >
+            <img
+              alt="prev"
+              src="pagination.svg"
+            />
+          </button>
+          <ul
+            class="pagination__list"
+          >
+            <li
+              class="pagination__item"
+            >
+              <button
+                class="pagination__page active"
+              >
+                1
+              </button>
+            </li>
+          </ul>
+          <button
+            class="pagination__next"
+          >
+            <img
+              alt="next"
+              src="pagination.svg"
+            />
+          </button>
+        </div>
+      </div>
+      <p
+        class="decription"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada.
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

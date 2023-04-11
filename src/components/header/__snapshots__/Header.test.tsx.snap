@@ -1,0 +1,440 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Проверка соответствия количества товаров и цены в корзине + снэпшот компонента 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <header
+        class="header"
+      >
+        <div
+          class="wrapper"
+        >
+          <article
+            class="upheader"
+          >
+            <ul
+              class="upheader__contacts"
+            >
+              <li
+                class="upheader__place"
+              >
+                <div
+                  class="upheader__place_img"
+                />
+                <span>
+                  г. Кокчетав, ул. Ж. Ташенова 129Б
+                </span>
+                <br />
+                <span>
+                  (Рынок Восточный)
+                </span>
+              </li>
+              <li
+                class="upheader__email"
+              >
+                <div
+                  class="upheader__email_img"
+                />
+                <span>
+                   opt.sultan@mail.ru
+                </span>
+                <br />
+                <span>
+                  На связи в любое время
+                </span>
+              </li>
+            </ul>
+            <ul
+              class="nav"
+            >
+              <li
+                class="nav__item"
+              >
+                <a
+                  class="nav__link"
+                  href="#"
+                >
+                  О компании
+                </a>
+              </li>
+              <li
+                class="nav__item"
+              >
+                <a
+                  class="nav__link"
+                  href="#"
+                >
+                  Доставка и оплата
+                </a>
+              </li>
+              <li
+                class="nav__item"
+              >
+                <a
+                  class="nav__link"
+                  href="#"
+                >
+                  Возврат
+                </a>
+              </li>
+              <li
+                class="nav__item"
+              >
+                <a
+                  class="nav__link"
+                  href="#"
+                >
+                  Контакты
+                </a>
+              </li>
+            </ul>
+          </article>
+        </div>
+        <span
+          class="line"
+        />
+        <div
+          class="wrapper"
+        >
+          <article
+            class="downheader"
+          >
+            <a
+              class="downheader__logotype"
+              data-testid="testAdminLink"
+              href="/admin"
+            />
+            <button
+              class="downheader__catalog"
+            >
+              Каталог
+              <span
+                class="downheader__catalog_icon"
+              />
+            </button>
+            <div
+              class="downheader__search"
+            >
+              <input
+                class="downheader__input"
+                placeholder="Поиск..."
+              />
+              <button
+                class="downheader__search-btn"
+              />
+              <div
+                class="downheader__search-icon"
+              />
+            </div>
+            <div
+              class="downheader__support"
+            >
+              <div
+                class="downheader__support-text"
+              >
+                <span>
+                  +7 (777) 490-00-91
+                </span>
+                <span>
+                  время работы: 9:00-20:00
+                </span>
+                <span>
+                  Заказать звонок
+                </span>
+              </div>
+              <div
+                class="downheader__support-img"
+              />
+            </div>
+            <button
+              class="downheader__price-list"
+            >
+              Прайс-лист
+              <span
+                class="downheader__price-list_icon"
+              />
+            </button>
+            <div
+              class="downheader__cart"
+            >
+              <a
+                class="downheader__cart-link"
+                data-testid="testCartLink"
+                href="/cart"
+              >
+                <span
+                  class="downheader__cart-link_img"
+                />
+                <span
+                  class="downheader__cart-link_count"
+                  data-testid="testAmountItems"
+                >
+                  2
+                </span>
+              </a>
+              <div
+                class="downheader__cart-info"
+              >
+                Корзина
+                <br />
+                <span
+                  data-testid="testAmountMoney"
+                >
+                  500
+                   ₸
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <span
+          class="line2"
+        />
+      </header>
+    </div>
+  </body>,
+  "container": <div>
+    <header
+      class="header"
+    >
+      <div
+        class="wrapper"
+      >
+        <article
+          class="upheader"
+        >
+          <ul
+            class="upheader__contacts"
+          >
+            <li
+              class="upheader__place"
+            >
+              <div
+                class="upheader__place_img"
+              />
+              <span>
+                г. Кокчетав, ул. Ж. Ташенова 129Б
+              </span>
+              <br />
+              <span>
+                (Рынок Восточный)
+              </span>
+            </li>
+            <li
+              class="upheader__email"
+            >
+              <div
+                class="upheader__email_img"
+              />
+              <span>
+                 opt.sultan@mail.ru
+              </span>
+              <br />
+              <span>
+                На связи в любое время
+              </span>
+            </li>
+          </ul>
+          <ul
+            class="nav"
+          >
+            <li
+              class="nav__item"
+            >
+              <a
+                class="nav__link"
+                href="#"
+              >
+                О компании
+              </a>
+            </li>
+            <li
+              class="nav__item"
+            >
+              <a
+                class="nav__link"
+                href="#"
+              >
+                Доставка и оплата
+              </a>
+            </li>
+            <li
+              class="nav__item"
+            >
+              <a
+                class="nav__link"
+                href="#"
+              >
+                Возврат
+              </a>
+            </li>
+            <li
+              class="nav__item"
+            >
+              <a
+                class="nav__link"
+                href="#"
+              >
+                Контакты
+              </a>
+            </li>
+          </ul>
+        </article>
+      </div>
+      <span
+        class="line"
+      />
+      <div
+        class="wrapper"
+      >
+        <article
+          class="downheader"
+        >
+          <a
+            class="downheader__logotype"
+            data-testid="testAdminLink"
+            href="/admin"
+          />
+          <button
+            class="downheader__catalog"
+          >
+            Каталог
+            <span
+              class="downheader__catalog_icon"
+            />
+          </button>
+          <div
+            class="downheader__search"
+          >
+            <input
+              class="downheader__input"
+              placeholder="Поиск..."
+            />
+            <button
+              class="downheader__search-btn"
+            />
+            <div
+              class="downheader__search-icon"
+            />
+          </div>
+          <div
+            class="downheader__support"
+          >
+            <div
+              class="downheader__support-text"
+            >
+              <span>
+                +7 (777) 490-00-91
+              </span>
+              <span>
+                время работы: 9:00-20:00
+              </span>
+              <span>
+                Заказать звонок
+              </span>
+            </div>
+            <div
+              class="downheader__support-img"
+            />
+          </div>
+          <button
+            class="downheader__price-list"
+          >
+            Прайс-лист
+            <span
+              class="downheader__price-list_icon"
+            />
+          </button>
+          <div
+            class="downheader__cart"
+          >
+            <a
+              class="downheader__cart-link"
+              data-testid="testCartLink"
+              href="/cart"
+            >
+              <span
+                class="downheader__cart-link_img"
+              />
+              <span
+                class="downheader__cart-link_count"
+                data-testid="testAmountItems"
+              >
+                2
+              </span>
+            </a>
+            <div
+              class="downheader__cart-info"
+            >
+              Корзина
+              <br />
+              <span
+                data-testid="testAmountMoney"
+              >
+                500
+                 ₸
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <span
+        class="line2"
+      />
+    </header>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
